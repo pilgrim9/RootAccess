@@ -39,7 +39,7 @@ public class MailMission : MonoBehaviour
             mission = mission.Replace("{folder}", users[randomUser].folders[randomFolder].name);
 
             mission = mission.Replace("{file}", file );
-            AddFile(users[randomUser], file);
+            AddFile(users[randomUser], file, users[randomUser].folders[randomFolder].name);
         }
         else
         {
@@ -67,13 +67,18 @@ public class MailMission : MonoBehaviour
          return file;
     }
 
-    void AddFile(UserSO user, string file) 
+    void AddFile(UserSO user, string file, string folder) 
     {
         OSFile oSFile = new OSFile();
         oSFile.name = file;
         
         int randomFolder = Random.Range(0, user.folders.Count);
-        if (user.folders[randomFolder].subfolders.Count == 0) user.folders[randomFolder].files.Add(oSFile);
+        if (user.folders[randomFolder].subfolders.Count == 0 && user.folders[randomFolder].name != folder) user.folders[randomFolder].files.Add(oSFile);
+        else if (user.folders[randomFolder].subfolders.Count == 0)
+        {
+            AddFile(user,file,folder);
+            return;
+        }
         else
         {
             int folderOrSubfolder  = Random.Range(0, 3);
