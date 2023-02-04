@@ -4,12 +4,13 @@ using TMPro;
 
 public class Username : MonoBehaviour
 {
-    [SerializeField] TextMeshPro nameText, idText;
+    [SerializeField] TextMeshProUGUI nameText, idText,emailText;
     [SerializeField] GameObject namePanel, menuPanel;
-    void SaveName() 
-    { 
-        PlayerPrefs.SetString("Name", nameText.text);
+    public void SaveName()
+    {
+        PlayerPrefs.SetString("Name", nameText.text.ToUpper());
         idText.text = PlayerPrefs.GetString("Name");
+        emailText.text = PlayerPrefs.GetString("Name")+ "@gmail.com";
         namePanel.SetActive(false);
         menuPanel.SetActive(true);
     }
