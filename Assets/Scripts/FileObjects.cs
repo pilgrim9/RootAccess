@@ -10,18 +10,25 @@ using Object = System.Object;
 public class OSFolder: Object
 {
     public OSFolder(){}
-    public OSFolder(string path, string name)
+    public OSFolder(string name, OSFolder parent=null)
     {
-        folderPath = path+"/"+name;
-        this.name = name;
+        this.name = name;        
         subfolders = new List<OSFolder>();
         files = new List<OSFile>();
+        BuildFolderPath();
+        ParentFolder = parent;
     }
-    [NonSerialized] public string folderPath;
-    [NonSerialized] public OSFolder ParentFolder;
+
+    public void BuildFolderPath()
+    {
+        FolderPath = ParentFolder != null? ParentFolder.FolderPath: "root:"+"/"+name;
+    }
     public string name;
     public List<OSFolder> subfolders;
     public List<OSFile> files;
+    [NonSerialized] public string FolderPath;
+    [NonSerialized] public OSFolder ParentFolder;
+
 
     public bool Contains(string fileName)
     {

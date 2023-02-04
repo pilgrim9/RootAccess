@@ -10,48 +10,38 @@ public class FileSystem : MonoBehaviour
     public OSFolder currentFolder;
     private OSFolder root;
     public static FileSystem instance;
-    private List<string> users = new List<string>()
-    {
-        "1",
-        "2",
-        "3",
-        "4"
-    };
-    
-    private List<string> folders = new List<string>()
-    {
-        "documentos",
-        "fotos",
-    };
+    public UserSO[] users;
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void init()
+    private void Start()
     {
-        root = new OSFolder("C:", "");
-        createUsers(root, users);
+        Init();
     }
 
-    private void createUsers(OSFolder parentFolder, List<string> files)
+    private void Init()
     {
-        foreach (var file in files)
-        {
-            OSFolder userFolder = new OSFolder(parentFolder.folderPath + file, file);
-            createDocumentFolders(userFolder, folders);
-            parentFolder.subfolders.Add(userFolder);
-        }
-        
+        root = new OSFolder("");
+        CreateUsers(root);
+        currentFolder = root;
     }
-    
-    private void createDocumentFolders(OSFolder parentFolder, List<string> files)
+
+    private void CreateUsers(OSFolder parentFolder)
     {
-        foreach (var file in files)
+        foreach (var user in users)
         {
-            OSFolder documentFolder = new OSFolder(parentFolder.folderPath, file);
-            parentFolder.subfolders.Add(documentFolder);
+            OSFolder userFolder = new OSFolder(user.Name, parentFolder);
+            userFolder.subfolders = user.folders;
+            userFolder.files = user.files;
+            parentFolder.subfolders.Add(userFolder);
+            foreach (var folder in userFolder.subfolders)
+            {
+                folder.ParentFolder = userFolder;
+                folder.BuildFolderPath();
+            }
         }
     }
 }

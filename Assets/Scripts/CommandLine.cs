@@ -9,6 +9,17 @@ using UnityEngine;
 
 public class CommandLine : MonoBehaviour
 {
+    public static CommandLine instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    private void Start()
+    {
+    }
+
     private Dictionary<string, string> commands = new Dictionary<string, string>()
     {
         { "open", nameof(Open) },
@@ -21,7 +32,6 @@ public class CommandLine : MonoBehaviour
 
     private string output = "";
     
-    // Start is called before the first frame update
     public string InputCommand(string input)
     {
         clearOutput();
@@ -35,13 +45,13 @@ public class CommandLine : MonoBehaviour
         string command = parameters[0].ToLower();
         string parameter = parameters.Length == 1? "" : parameters[1].ToLower();
 
-        if (!command.Contains(command))
+        if (!commands.Keys.Contains(command))
         {
             output = "Command does not exist";
             return output;
         }
         Type thisType = this.GetType();
-        MethodInfo theMethod = thisType.GetMethod(command);
+        MethodInfo theMethod = thisType.GetMethod(commands[command]);
         theMethod.Invoke(this, new[] { parameter });
         return output;
     }
