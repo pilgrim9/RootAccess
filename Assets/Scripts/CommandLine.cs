@@ -110,7 +110,7 @@ public class CommandLine : MonoBehaviour
         if (FileSystem.instance.clipboard != null)
         {
             FileSystem.instance.currentFolder.Add(FileSystem.instance.clipboard);
-            FileSystem.instance.clipboard = null;
+                FileSystem.instance.clipboard = null;
             output = "File Pasted";
             List("");
         }
