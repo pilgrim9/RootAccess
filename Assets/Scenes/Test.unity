@@ -216,6 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937781167}
+  - component: {fileID: 1937781168}
   m_Layer: 0
   m_Name: Testing
   m_TagString: Untagged
@@ -238,3 +239,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1937781168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937781166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4474562f5f53b5845b61fae8cac157d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  install: {fileID: 11400000, guid: b536da7727072a84ca26a15b584a48cd, type: 2}
+  move: {fileID: 11400000, guid: ff6bb2e4554bcc84b94c5c323684effe, type: 2}
+  files: []
+  apps:
+  - 3dMax
+  - Photoshop
+  - Unity
+  firstFileName:
+  - Presupuesto
+  - Imagen
+  - Presentacion
+  - Miami
+  - Documentacion
+  secondFileName:
+  - Anual
+  - Final
+  - Borrador
+  - Copia
+  - BackUp
+  formatName:
+  - .ppt
+  - .jpg
+  - .rar
+  - .pdf
+  - .mat
+  filesCreates: []
