@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Unity.VisualScripting.Dependencies.NCalc;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class CommandLine : MonoBehaviour
@@ -40,7 +37,7 @@ public class CommandLine : MonoBehaviour
         if (parameters.Length > 2)
         {
             output = "Too many arguments";
-            return getOutput( input);
+            return getOutput(input);
         }
         
         string command = parameters[0].ToLower();
@@ -77,12 +74,15 @@ public class CommandLine : MonoBehaviour
             return;
         }
 
-        if (!FileSystem.instance.currentFolder.Contains(parameter))
+        Debug.Log(parameter);
+        if (!FileSystem.instance.currentFolder.ContainsFolder(parameter))
         {
-            output = "Folder doesn't exist in current folder";
+            output = "Folder \"" + parameter + "\" doesn't exist in current folder";
+            return;
         }
 
         OSFolder folder = FileSystem.instance.currentFolder.GetFolder(parameter);
+        Debug.Log(folder);
         FileSystem.instance.currentFolder = folder;
         List("");
     }
@@ -94,7 +94,7 @@ public class CommandLine : MonoBehaviour
     
     public void Cut(string parameter)
     {
-        if (FileSystem.instance.currentFolder.Contains(parameter))
+        if (FileSystem.instance.currentFolder.ContainsFile(parameter))
         {
             FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(parameter);
             output = "Cut file " + parameter;
@@ -138,16 +138,18 @@ public class CommandLine : MonoBehaviour
             output = "List doesn't require parameters!";
             return;
         }
+
+        Debug.Log(FileSystem.instance.currentFolder.getName());
         output += "This folder contains "+FileSystem.instance.currentFolder.subfolders.Count+" folders:";
         foreach (var folder in FileSystem.instance.currentFolder.subfolders)
         {
-            output += "\n -" + folder.name;
+            output += "\n -" + folder.getName();
         }
 
         output += "\nThis folder contains "+FileSystem.instance.currentFolder.files.Count+" files:";
         foreach (var file in FileSystem.instance.currentFolder.files)
         {
-            output += "\n -" + file.name;
+            output += "\n -" + file.getName();
         }
     }
 

@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.NCalc;
 using Object = System.Object;
 
 [System.Serializable]
@@ -23,39 +24,52 @@ public class OSFolder: Object
     {
         FolderPath = "\\" +  (ParentFolder != null? ParentFolder.FolderPath + "\\" + name : name);
     }
+
+    public string getName()
+    {
+        return name.ToLower();
+    }
     public string name;
-    public List<OSFolder> subfolders;
-    public List<OSFile> files;
+    
+    public List<OSFolder> subfolders = new List<OSFolder>();
+    public List<OSFile> files = new List<OSFile>();
     [NonSerialized] public string FolderPath;
     [NonSerialized] public OSFolder ParentFolder;
 
 
-    public bool Contains(string fileName)
+    public bool ContainsFolder(string FolderName)
     {
         foreach (var folder in subfolders)
         {
-            if (folder.name == fileName)
+            if (folder.getName() == FolderName)
             {
                 return true;
             }
         }
+        return false;   
+    }
 
+    public bool ContainsFile(string fileName)
+    {
         foreach (var file in files)
         {
-            if (file.name == fileName)
+            if (file.getName() == fileName)
             {
                 return true;
             }
         }
-
         return false;
+    }
+    public bool Contains(string fileName)
+    {
+        return (ContainsFolder(fileName) || ContainsFile(fileName));
     }
 
     public OSFolder GetFolder(string folderName)
     {
         foreach (var folder in subfolders)
         {
-            if (folder.name == folderName)
+            if (folder.getName() == folderName)
             {
                 return folder;
             }
@@ -68,7 +82,7 @@ public class OSFolder: Object
     {
         foreach (var folder in subfolders)
         {
-            if (folder.name == fileName)
+            if (folder.getName() == fileName)
             {
                 return folder;
             }
@@ -76,7 +90,7 @@ public class OSFolder: Object
 
         foreach (var file in files)
         {
-            if (file.name == fileName)
+            if (file.getName() == fileName)
             {
                 return file;
             }
@@ -89,7 +103,7 @@ public class OSFolder: Object
     {
         foreach (var file in  files)
         {
-            if (file.name == fileName)
+            if (file.getName() == fileName)
             {
                 files.Remove(file);
                 return file;
@@ -114,6 +128,10 @@ public class OSFolder: Object
 [System.Serializable]
 public class OSFile : Object
 {
+    public string getName()
+    {
+        return name.ToLower();
+    }
     public string name;
     [NonSerialized] public string targetFolderPath;
 }

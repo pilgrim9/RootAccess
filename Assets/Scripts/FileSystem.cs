@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
 using Object = System.Object;
 
 public class FileSystem : MonoBehaviour
 {
-    public Object clipboard;
+    public OSFile clipboard;
     public OSFolder currentFolder;
-    private OSFolder root;
+    public OSFolder root;
     public static FileSystem instance;
     public UserSO[] users;
 
@@ -37,11 +39,21 @@ public class FileSystem : MonoBehaviour
             userFolder.subfolders = user.folders;
             userFolder.files = user.files;
             parentFolder.subfolders.Add(userFolder);
-            foreach (var folder in userFolder.subfolders)
-            {
-                folder.ParentFolder = userFolder;
-                folder.BuildFolderPath();
-            }
+            ParentThisFolder(userFolder);
         }
     }
+
+    public void ParentThisFolder(OSFolder parentFolder)
+    {
+        foreach (var folder in parentFolder.subfolders)
+        {
+            folder.ParentFolder = parentFolder;
+            folder.BuildFolderPath();
+            if (folder.subfolders.Count > 0)
+            {
+                ParentThisFolder(folder);
+            } 
+        }
+    }
+
 }
