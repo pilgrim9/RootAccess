@@ -9,16 +9,6 @@ public class CommandLine : MonoBehaviour
 {
     public static CommandLine instance;
 
-    public string[] installers =
-    {
-        "internet",
-        "quill",
-        "studio",
-        "workbench",
-        "musicplayer",
-        "accounting"
-    };
-
     private void Awake()
     {
         instance = this;
@@ -61,7 +51,7 @@ public class CommandLine : MonoBehaviour
         Debug.Log(command + " command function"  + commands[command]);
         Debug.Log("method name" + theMethod);
         theMethod.Invoke(this, new[] { parameter });
-        return getOutput( input);
+        return getOutput(input);z
     }
 
     private string getOutput(string input)
@@ -163,10 +153,11 @@ public class CommandLine : MonoBehaviour
     }
     public void Paste(string parameters)
     {
+        Debug.Log(FileSystem.instance.clipboard);
         if (FileSystem.instance.clipboard != null)
         {
             FileSystem.instance.currentFolder.Add(FileSystem.instance.clipboard);
-                FileSystem.instance.clipboard = null;
+            FileSystem.instance.clipboard = null;
             output = "File Pasted";
             List("");
         }

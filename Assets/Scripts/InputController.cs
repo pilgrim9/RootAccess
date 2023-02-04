@@ -24,16 +24,6 @@ public class InputController : MonoBehaviour
             Debug.Log("enter");
             HandleInput();
         }
-        ReselectInput();
-    }
-
-    private void ReselectInput()
-    {   
-        if (EventSystem.current.currentSelectedGameObject != InputField)
-        {
-            // Debug.Log("  selecting");
-            EventSystem.current.SetSelectedGameObject(InputField.gameObject);
-        }
     }
 
     public void HandleInput()

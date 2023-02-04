@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FileSystem : MonoBehaviour
 {
-    public OSFile clipboard;
+    public OSFile clipboard = null;
     public OSFolder currentFolder;
     public OSFolder root;
     public static FileSystem instance;

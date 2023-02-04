@@ -6,10 +6,10 @@ public class GameManager : MonoBehaviour
     public int minutesPerDay = 3;
     public float secondsRemaining;
     public bool gameStarted = false;
-
+    
     public UnityEvent onGameStart;
     public UnityEvent onGameEnd;
-    
+
     public void startGame()
     {
         gameStarted = true;
