@@ -4,10 +4,13 @@ using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CommandLine : MonoBehaviour
 {
     public static CommandLine instance;
+
+    public event Action<string, string, string> onCommand;
 
     private void Awake()
     {
@@ -48,10 +51,9 @@ public class CommandLine : MonoBehaviour
         
         Type thisType = this.GetType();
         MethodInfo theMethod = thisType.GetMethod(commands[command]);
-        Debug.Log(command + " command function"  + commands[command]);
-        Debug.Log("method name" + theMethod);
         theMethod.Invoke(this, new[] { parameter });
-        return getOutput(input);z
+        onCommand.Invoke(command, FileSystem.instance.currentFolder.FolderPath, parameter);
+        return getOutput(input);
     }
 
     private string getOutput(string input)
@@ -94,9 +96,9 @@ public class CommandLine : MonoBehaviour
             return;
         }
 
-        if (!installers.Contains(parameter))
+        if (!MailMission.instance.apps.Contains(parameter))
         {
-            output = "Error: That is not a file you an download.";
+            output = "Error: That is not a file you can download.";
             OutputDownloadables();
             return;
         }
@@ -111,14 +113,14 @@ public class CommandLine : MonoBehaviour
     public void OutputDownloadables()
     {
         output += "\n You can download these files:\n";
-        foreach (var name in installers)
+        foreach (var name in MailMission.instance.apps)
         {
             output += "\n"+ name ;
         }
     }
     public void Install(string parameter)
     {
-        if (!installers.Contains(parameter))
+        if (!MailMission.instance.apps.Contains(parameter))
         {
             output = "You need to install you have downloaded."; 
             OutputDownloadables();
@@ -134,27 +136,27 @@ public class CommandLine : MonoBehaviour
         output = parameter + " app installed successfully!";
     }
     
-    public void Cut(string parameter)
+    public void Cut(string file)
     {
-        if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
+        if (!FileSystem.instance.currentFolder.ContainsFile(file))
         {
             output = "File does not exist in this folder";
             return;
         }
 
-        if (FileSystem.instance.clipboard != null)
+        if (FileSystem.instance.clipboard != null && FileSystem.instance.clipboard.name !="")
         {
             output = "You cannot cut while holding another file. Paste first please.";
             return;
         }
-        FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(parameter);
-        output = "Cut file " + parameter;
+        FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(file);
+        output = "Cut file " + file;
         List("");
     }
     public void Paste(string parameters)
     {
         Debug.Log(FileSystem.instance.clipboard);
-        if (FileSystem.instance.clipboard != null)
+        if (FileSystem.instance.clipboard != null && FileSystem.instance.clipboard.name !="")
         {
             FileSystem.instance.currentFolder.Add(FileSystem.instance.clipboard);
             FileSystem.instance.clipboard = null;

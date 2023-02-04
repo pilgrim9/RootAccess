@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MailMission : MonoBehaviour
 
@@ -9,6 +12,12 @@ public class MailMission : MonoBehaviour
     public List<string> files, apps, firstFileName, secondFileName, formatName, filesCreates;
 
     UserSO[] users;
+
+    public static MailMission instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
