@@ -72,8 +72,15 @@ public class MailMission : MonoBehaviour
         OSFile oSFile = new OSFile();
         oSFile.name = file;
         
-        int randomFolder = Random.Range(0, user.folders.Count);
-        if (user.folders[randomFolder].subfolders.Count == 0 && user.folders[randomFolder].name != folder) user.folders[randomFolder].files.Add(oSFile);
+        
+        int isFilesInFolderMother = Random.Range(0, 4);
+
+        if (isFilesInFolderMother == 0) user.files.Add(oSFile);
+
+        else {
+            int randomFolder = Random.Range(0, user.folders.Count);
+
+            if (user.folders[randomFolder].subfolders.Count == 0 && user.folders[randomFolder].name != folder) user.folders[randomFolder].files.Add(oSFile);
         else if (user.folders[randomFolder].subfolders.Count == 0)
         {
             AddFile(user,file,folder);
@@ -88,6 +95,7 @@ public class MailMission : MonoBehaviour
                 int randomSubfolder = Random.Range(0, user.folders[randomFolder].subfolders.Count);
                 user.folders[randomFolder].subfolders[randomSubfolder].Add(oSFile);
             }
+        }
         }
     }
     private void Update()
