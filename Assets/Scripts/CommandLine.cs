@@ -2,19 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CommandLine : MonoBehaviour
 {
     public static CommandLine instance;
 
+    public string[] installers =
+    {
+        "internet",
+        "quill",
+        "studio",
+        "workbench",
+        "musicplayer",
+        "accounting"
+    };
+
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Start()
-    {
     }
 
     private Dictionary<string, string> commands = new Dictionary<string, string>()
@@ -24,8 +31,8 @@ public class CommandLine : MonoBehaviour
         { "install", nameof(Install) },
         { "cut", nameof(Cut)},
         { "paste", nameof(Paste)},
-        { "list", nameof(List)}
-        // { "download", nameof(Download)},
+        { "list", nameof(List)},
+        { "download", nameof(Download)},
     };
 
     private string output = "";
@@ -45,9 +52,10 @@ public class CommandLine : MonoBehaviour
 
         if (!commands.Keys.Contains(command))
         {
-            output = "Command does not exist";
+            output = "Command "+command+" does not exist";
             return getOutput( input);
         }
+        
         Type thisType = this.GetType();
         MethodInfo theMethod = thisType.GetMethod(commands[command]);
         Debug.Log(command + " command function"  + commands[command]);
@@ -86,10 +94,37 @@ public class CommandLine : MonoBehaviour
         FileSystem.instance.currentFolder = folder;
         List("");
     }
-    
-    public void Install(string[] parameters)
+
+    public void Download(string parameter)
     {
-        // not implemented
+        if (ParameterVoid(parameter))
+        {
+            output = "Please specify which installer to download \n" +
+                     "Available downloads:\n";
+            foreach (var name in installers)
+            {
+                output += name+"\n";
+            }
+        }
+    }
+    
+    public void Install(string parameter)
+    {
+        if (!parameter.EndsWith(".exe"))
+        {
+            output = "You can only install files that end in .exe";
+            return;
+        }
+        if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
+        {
+            output = "The file doesn't exist. You may need to download it first.";
+            return;
+        }
+
+        FileSystem.instance.currentFolder.Cut(parameter);
+        
+
+        output = parameter + " app installed successfully!";
     }
     
     public void Cut(string parameter)
@@ -110,13 +145,13 @@ public class CommandLine : MonoBehaviour
         if (FileSystem.instance.clipboard != null)
         {
             FileSystem.instance.currentFolder.Add(FileSystem.instance.clipboard);
-            FileSystem.instance.clipboard = null;
+                FileSystem.instance.clipboard = null;
             output = "File Pasted";
             List("");
         }
         else
         {
-            output = "File does not exist in this folder";
+            output = "Nothing to paste. You need to cut a file first.";
         }
     }
     public void Back(string parameter)
@@ -125,6 +160,11 @@ public class CommandLine : MonoBehaviour
         {
             output = "Back doesn't require parameters!";
             return;
+        }
+
+        if (FileSystem.instance.currentFolder.ParentFolder == null)
+        {
+            output = "root folder doesn't have a parent folder";
         }
         FileSystem.instance.currentFolder = FileSystem.instance.currentFolder.ParentFolder;
         List("");
@@ -135,7 +175,7 @@ public class CommandLine : MonoBehaviour
     {
         if (!ParameterVoid(parameter))
         {
-            output = "List doesn't require parameters!";
+            output = "The list command doesn't require parameters";
             return;
         }
 
@@ -153,7 +193,7 @@ public class CommandLine : MonoBehaviour
         }
     }
 
-    public bool ParameterVoid(string parameter)
+    bool ParameterVoid(string parameter)
     {
         return (parameter == "");
     }

@@ -99,7 +99,7 @@ public class OSFolder: Object
         return false;
     }
 
-    public Object Cut(string fileName)
+    public OSFile Cut(string fileName)
     {
         foreach (var file in  files)
         {
