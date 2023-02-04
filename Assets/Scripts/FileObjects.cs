@@ -128,6 +128,12 @@ public class OSFolder: Object
 [System.Serializable]
 public class OSFile : Object
 {
+    public OSFile() {}
+
+    public OSFile(string name)
+    {
+        this.name = name;
+    }
     public string getName()
     {
         return name.ToLower();

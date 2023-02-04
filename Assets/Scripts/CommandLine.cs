@@ -99,20 +99,39 @@ public class CommandLine : MonoBehaviour
     {
         if (ParameterVoid(parameter))
         {
-            output = "Please specify which installer to download \n" +
-                     "Available downloads:\n";
-            foreach (var name in installers)
-            {
-                output += name+"\n";
-            }
+            output = "Error: Please specify a file to download.";
+            OutputDownloadables();
+            return;
+        }
+
+        if (!installers.Contains(parameter))
+        {
+            output = "Error: That is not a file you an download.";
+            OutputDownloadables();
+            return;
+        }
+
+        if (FileSystem.instance.currentFolder.ContainsFile(parameter))
+        {
+            output = "Error: You already downloaded this file.";
+            return;
+        }
+        FileSystem.instance.currentFolder.Add(new OSFile(parameter));
+    }
+    public void OutputDownloadables()
+    {
+        output += "\n You can download these files:\n";
+        foreach (var name in installers)
+        {
+            output += "\n"+ name ;
         }
     }
-    
     public void Install(string parameter)
     {
-        if (!parameter.EndsWith(".exe"))
+        if (!installers.Contains(parameter))
         {
-            output = "You can only install files that end in .exe";
+            output = "You need to install you have downloaded."; 
+            OutputDownloadables();
             return;
         }
         if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
@@ -120,25 +139,27 @@ public class CommandLine : MonoBehaviour
             output = "The file doesn't exist. You may need to download it first.";
             return;
         }
-
-        FileSystem.instance.currentFolder.Cut(parameter);
         
-
+        FileSystem.instance.currentFolder.Cut(parameter);
         output = parameter + " app installed successfully!";
     }
     
     public void Cut(string parameter)
     {
-        if (FileSystem.instance.currentFolder.ContainsFile(parameter))
-        {
-            FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(parameter);
-            output = "Cut file " + parameter;
-            List("");
-        }
-        else
+        if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
         {
             output = "File does not exist in this folder";
+            return;
         }
+
+        if (FileSystem.instance.clipboard != null)
+        {
+            output = "You cannot cut while holding another file. Paste first please.";
+            return;
+        }
+        FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(parameter);
+        output = "Cut file " + parameter;
+        List("");
     }
     public void Paste(string parameters)
     {
@@ -178,21 +199,28 @@ public class CommandLine : MonoBehaviour
             output = "The list command doesn't require parameters";
             return;
         }
+        ListFolders();
+        ListFiles();
+    }
 
-        Debug.Log(FileSystem.instance.currentFolder.getName());
+    public void ListFolders()
+    {
         output += "This folder contains "+FileSystem.instance.currentFolder.subfolders.Count+" folders:";
         foreach (var folder in FileSystem.instance.currentFolder.subfolders)
         {
-            output += "\n -" + folder.getName();
-        }
-
-        output += "\nThis folder contains "+FileSystem.instance.currentFolder.files.Count+" files:";
-        foreach (var file in FileSystem.instance.currentFolder.files)
-        {
-            output += "\n -" + file.getName();
+            output += "\n -<color="+ Colors.FolderColor +">" + folder.getName() + "</color>";
         }
     }
 
+    public void ListFiles()
+    {
+        output += "\nThis folder contains "+FileSystem.instance.currentFolder.files.Count+" files:";
+        foreach (var file in FileSystem.instance.currentFolder.files)
+        {
+            output += "\n -<color="+ Colors.FileColor +">" + file.getName() + "</color>";
+        }
+    }
+    
     bool ParameterVoid(string parameter)
     {
         return (parameter == "");
