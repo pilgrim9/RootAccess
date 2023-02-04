@@ -1,8 +1,20 @@
 using UnityEngine;
 
 public class Settings : MonoBehaviour
-{
-    [SerializeField] AudioSource audioSource;
+{ 
+    [SerializeField] AudioSource[] audioSources;
 
-    public void ChangeVolume() => audioSource.volume = PlayerPrefs.GetFloat("Volume");
+    private void Start()
+    {
+        audioSources = FindObjectsOfType<AudioSource>();
+    }
+
+    public void ChangeVolume() 
+    {
+        foreach (AudioSource item in audioSources)
+        {
+            item.volume = PlayerPrefs.GetFloat("Volume");
+        }
+        
+    }
 }

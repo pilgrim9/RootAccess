@@ -1,52 +1,59 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.WSA;
 using Object = System.Object;
 
 public class FileSystem : MonoBehaviour
 {
-    public Object clipboard;
+    public OSFile clipboard;
     public OSFolder currentFolder;
-    private OSFolder root;
-    
-    private List<string> users = new List<string>()
+    public OSFolder root;
+    public static FileSystem instance;
+    public UserSO[] users;
+
+    private void Awake()
     {
-        "1",
-        "2",
-        "3",
-        "4"
-    };
-    
-    private List<string> folders = new List<string>()
-    {
-        "documentos",
-        "fotos",
-    };
-    
-    private void init()
-    {
-        root = new OSFolder("C:", "");
-        createUsers(root, users);
+        instance = this;
     }
 
-    private void createUsers(OSFolder parentFolder, List<string> files)
+    private void Start()
     {
-        foreach (var file in files)
+        Init();
+    }
+
+    private void Init()
+    {
+        root = new OSFolder("root");
+        CreateUsers(root);
+        currentFolder = root;
+    }
+
+    private void CreateUsers(OSFolder parentFolder)
+    {
+        foreach (var user in users)
         {
-            OSFolder userFolder = new OSFolder(parentFolder.folderPath + file, file);
-            createDocumentFolders(userFolder, folders);
+            OSFolder userFolder = new OSFolder(user.Name, parentFolder);
+            userFolder.subfolders = user.folders;
+            userFolder.files = user.files;
             parentFolder.subfolders.Add(userFolder);
+            ParentThisFolder(userFolder);
         }
-        
     }
-    
-    private void createDocumentFolders(OSFolder parentFolder, List<string> files)
+
+    public void ParentThisFolder(OSFolder parentFolder)
     {
-        foreach (var file in files)
+        foreach (var folder in parentFolder.subfolders)
         {
-            OSFolder documentFolder = new OSFolder(parentFolder.folderPath, file);
-            parentFolder.subfolders.Add(documentFolder);
+            folder.ParentFolder = parentFolder;
+            folder.BuildFolderPath();
+            if (folder.subfolders.Count > 0)
+            {
+                ParentThisFolder(folder);
+            } 
         }
     }
+
 }
