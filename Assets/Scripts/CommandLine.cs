@@ -15,7 +15,7 @@ public class CommandLine : MonoBehaviour
         "quill",
         "studio",
         "workbench",
-        "",
+        "musicplayer",
         "accounting"
     };
 
@@ -55,6 +55,7 @@ public class CommandLine : MonoBehaviour
             output = "Command "+command+" does not exist";
             return getOutput( input);
         }
+        
         Type thisType = this.GetType();
         MethodInfo theMethod = thisType.GetMethod(commands[command]);
         Debug.Log(command + " command function"  + commands[command]);
@@ -111,16 +112,19 @@ public class CommandLine : MonoBehaviour
     {
         if (!parameter.EndsWith(".exe"))
         {
-            output = "You can only install files that end in .exe. ";
+            output = "You can only install files that end in .exe";
             return;
         }
-        if (FileSystem.instance.currentFolder.ContainsFile(parameter))
+        if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
         {
             output = "The file doesn't exist. You may need to download it first.";
             return;
         }
 
-        output = parameter + " app installed!";
+        FileSystem.instance.currentFolder.Cut(parameter);
+        
+
+        output = parameter + " app installed successfully!";
     }
     
     public void Cut(string parameter)
@@ -147,7 +151,7 @@ public class CommandLine : MonoBehaviour
         }
         else
         {
-            output = "File does not exist in this folder";
+            output = "Nothing to paste. You need to cut a file first.";
         }
     }
     public void Back(string parameter)
@@ -189,7 +193,7 @@ public class CommandLine : MonoBehaviour
         }
     }
 
-    public bool ParameterVoid(string parameter)
+    bool ParameterVoid(string parameter)
     {
         return (parameter == "");
     }
