@@ -1675,18 +1675,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 773709752}
     m_Modifications:
-    - target: {fileID: 2940998425331876797, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940998425331876797, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940998425826604384, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2940998425826604385, guid: fee192b199fd23644aea63e3055c024c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1774,34 +1762,6 @@ PrefabInstance:
     - target: {fileID: 2940998425826604386, guid: fee192b199fd23644aea63e3055c024c, type: 3}
       propertyPath: m_Name
       value: Mails
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940998425877046996, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_Color.b
-      value: 0.76470596
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940998425877046996, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_Color.g
-      value: 0.76470596
-      objectReference: {fileID: 0}
-    - target: {fileID: 2940998425877046996, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_Color.r
-      value: 0.76470596
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375533089229033761, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -17.988
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375533089229033761, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -172.292
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375533089229033761, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.26904297
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375533089229033761, guid: fee192b199fd23644aea63e3055c024c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 81.145996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee192b199fd23644aea63e3055c024c, type: 3}
