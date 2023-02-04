@@ -1443,6 +1443,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e43e404a8ba63f843a7e548e55270c6a, type: 3}
+--- !u!1001 &1031820274
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1314.9008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 337.65347
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.990076
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324255, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: m_Name
+      value: Mail Mission
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
 --- !u!1 &1287963285
 GameObject:
   m_ObjectHideFlags: 0
