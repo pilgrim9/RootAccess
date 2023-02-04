@@ -9,7 +9,7 @@ public class FileSystem : MonoBehaviour
     public Object clipboard;
     public OSFolder currentFolder;
     private OSFolder root;
-    
+    public static FileSystem instance;
     private List<string> users = new List<string>()
     {
         "1",
@@ -23,7 +23,12 @@ public class FileSystem : MonoBehaviour
         "documentos",
         "fotos",
     };
-    
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void init()
     {
         root = new OSFolder("C:", "");

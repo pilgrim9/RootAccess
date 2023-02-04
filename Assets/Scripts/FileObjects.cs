@@ -43,6 +43,26 @@ public class OSFolder: Object
 
         return false;
     }
+    public Object Get(string fileName)
+    {
+        foreach (var folder in subfolders)
+        {
+            if (folder.name == fileName)
+            {
+                return folder;
+            }
+        }
+
+        foreach (var file in files)
+        {
+            if (file.name == fileName)
+            {
+                return file;
+            }
+        }
+
+        return false;
+    }
 
     public Object Cut(string fileName)
     {
@@ -55,6 +75,18 @@ public class OSFolder: Object
             }
         }
         return null;
+    }
+
+    public void Add(Object file)
+    {
+        if (file.GetType() == typeof(OSFolder))
+        {
+            subfolders.Add((OSFolder)file);
+        }
+        else
+        {
+            files.Add((OSFile)file);
+        }
     }
 }
 
