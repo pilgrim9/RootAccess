@@ -1,15 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EventSound : MonoBehaviour
 {
     [SerializeField] AudioSource source;
-    AudioClip[] clips;
-    [SerializeField] float minTine, maxTime;
+    [SerializeField] AudioClip[] clips;
+    [SerializeField] float minTime, maxTime;
 
     void Start()
     {
+        StartSound();
         clips = Resources.LoadAll<AudioClip>("Sounds/Effects");
     }
 
@@ -24,7 +24,7 @@ public class EventSound : MonoBehaviour
 
     void StartSound()
     {
-        float randomTime = Random.Range(minTine, maxTime);
+        float randomTime = Random.Range(minTime, maxTime);
         StartCoroutine(RandomSound(randomTime));
     }
 }

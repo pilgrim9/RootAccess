@@ -55,7 +55,7 @@ public class MailMission : MonoBehaviour
         int randomFirst = Random.Range(0, firstFileName.Count);
         int randomSecond = Random.Range(0, secondFileName.Count);
         int randomFormat = Random.Range(0, formatName.Count);
-        string file = firstFileName[randomFirst] +  secondFileName[randomSecond] + Random.Range(1879, 2024) + formatName[randomFormat];
+        string file = firstFileName[randomFirst] +  secondFileName[randomSecond] + Random.Range(1, 10) + formatName[randomFormat];
 
         while(filesCreates.Contains(file))
         {
