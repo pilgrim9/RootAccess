@@ -24,7 +24,7 @@ public class FileSystem : MonoBehaviour
 
     private void Init()
     {
-        root = new OSFolder("");
+        root = new OSFolder("root");
         CreateUsers(root);
         currentFolder = root;
     }

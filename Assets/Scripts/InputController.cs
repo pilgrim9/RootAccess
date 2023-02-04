@@ -1,27 +1,45 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InputController : MonoBehaviour
 {
     public TMP_Text text;
     public TMP_InputField InputField;
 
-    public string placeholder = "Input a command...";
     public string consolePlaceholder = "Bienvenido!";
     private void Start()
     {
         text.text = consolePlaceholder;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("enter"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            string input = InputField.text;
-            text.text += CommandLine.instance.InputCommand(input);
-            InputField.text = placeholder;
+            Debug.Log("enter");
+            HandleInput();
         }
+        ReselectInput();
+    }
+
+    private void ReselectInput()
+    {   
+        if (EventSystem.current.currentSelectedGameObject != InputField)
+        {
+            // Debug.Log("  selecting");
+            EventSystem.current.SetSelectedGameObject(InputField.gameObject);
+        }
+    }
+
+    public void HandleInput()
+    {
+        string input = InputField.text;
+        text.text += CommandLine.instance.InputCommand(input);
+        InputField.text = "";
     }
 }

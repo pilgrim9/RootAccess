@@ -21,7 +21,7 @@ public class OSFolder: Object
 
     public void BuildFolderPath()
     {
-        FolderPath = ParentFolder != null? ParentFolder.FolderPath: "root:"+"/"+name;
+        FolderPath = "\\" +  (ParentFolder != null? ParentFolder.FolderPath + "\\" + name : name);
     }
     public string name;
     public List<OSFolder> subfolders;
@@ -50,6 +50,20 @@ public class OSFolder: Object
 
         return false;
     }
+
+    public OSFolder GetFolder(string folderName)
+    {
+        foreach (var folder in subfolders)
+        {
+            if (folder.name == folderName)
+            {
+                return folder;
+            }
+        }
+
+        return null;
+    } 
+
     public Object Get(string fileName)
     {
         foreach (var folder in subfolders)
