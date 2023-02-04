@@ -51,6 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080f2d1d28907f84db72b23b8dfb36b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  installers:
+  - internet
+  - quill
+  - studio
+  - workbench
+  - musicplayer
+  - accounting
 --- !u!114 &5467535454187924209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +85,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab7c1cd6a95b55408eec7125201455e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clipboard:
+    name: 
   currentFolder:
+    name: 
+    subfolders: []
+    files: []
+  root:
     name: 
     subfolders: []
     files: []
@@ -737,6 +750,7 @@ GameObject:
   - component: {fileID: 8069907479341327570}
   - component: {fileID: 8069907479341327571}
   - component: {fileID: 8069907479341327596}
+  - component: {fileID: 8805639607026415409}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -864,19 +878,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8069907479341327596}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -885,19 +887,7 @@ MonoBehaviour:
       m_Calls: []
   m_OnDeselect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8069907479341327596}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
-        m_MethodName: Select
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -925,6 +915,18 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &8805639607026415409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069907479341327598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346b999375fa0e74d8c26dcfa6f961bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8069907479754364261
 GameObject:
   m_ObjectHideFlags: 0
