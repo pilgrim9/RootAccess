@@ -6,10 +6,10 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] Slider volume;
 
-    void StartGame() => SceneManager.LoadScene("Game");
+    public void StartGame() => SceneManager.LoadScene("Game");
 
-    void ExitGame() => Application.Quit();
+    public void ExitGame() => Application.Quit();
 
-    void SaveVolume() => PlayerPrefs.SetFloat("Volume", volume.value);
+    public void SaveVolume() => PlayerPrefs.SetFloat("Volume", volume.value);
 
 }
