@@ -6,7 +6,10 @@ using Object = System.Object;
 
 public class FileSystem : MonoBehaviour
 {
+    public Object clipboard;
+    public OSFolder currentFolder;
     private OSFolder root;
+    
     private List<string> users = new List<string>()
     {
         "1",
@@ -45,6 +48,5 @@ public class FileSystem : MonoBehaviour
             OSFolder documentFolder = new OSFolder(parentFolder.folderPath, file);
             parentFolder.subfolders.Add(documentFolder);
         }
-        
     }
 }

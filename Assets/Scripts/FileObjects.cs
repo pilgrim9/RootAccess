@@ -16,9 +16,11 @@ public class OSFolder: Object
         files = new List<OSFile>();
     }
     [NonSerialized] public string folderPath;
+    [NonSerialized] public OSFolder ParentFolder;
     public string folderName;
     public List<OSFolder> subfolders;
     public List<OSFile> files;
+   
 }
 
 [System.Serializable]
