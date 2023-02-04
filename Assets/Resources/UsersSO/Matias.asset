@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa2115d8f783944e8b9c7675790525f, type: 3}
   m_Name: Matias
   m_EditorClassIdentifier: 
-  Name: Matias Lopez
+  Name: Matias
   folders:
   - name: Imagenes
     subfolders:
