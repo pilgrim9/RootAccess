@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip lowTime;
-    public AudioClip Alarm;
+    public AudioClip alarm;
     private void Awake()
     {
         instance = this;
@@ -50,12 +50,17 @@ public class GameManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             if (elapsedTime > minutesPerDay * 60)
             {
+                
+                
                 endGame();
+
             }
             float percentageElapsed = elapsedTime / (minutesPerDay * 60f);
             if (percentageElapsed > 0.8f)
             {
-                audioSource.PlayOneShot(lowTime);
+                if (audioSource.isPlaying || !gameStarted) return;
+                audioSource.clip = lowTime;
+                audioSource.Play();
             }
         }
     }
@@ -63,7 +68,6 @@ public class GameManager : MonoBehaviour
     public void endGame()
     {
         gameStarted = false;
-        audioSource.PlayOneShot(Alarm);
         onDayEnd.Invoke();
     }
 

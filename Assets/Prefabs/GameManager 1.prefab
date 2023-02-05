@@ -118,7 +118,7 @@ MonoBehaviour:
         m_CallState: 2
   FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
   firstMission: 1
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 6316463623447851064}
   lowTime: {fileID: 8300000, guid: 36fc8b6ecf2813f4d8f15dec3bb0c97a, type: 3}
   Alarm: {fileID: 8300000, guid: 70cf4200e60c6934fb089ddc76c82272, type: 3}
 --- !u!114 &7489661708814330768
