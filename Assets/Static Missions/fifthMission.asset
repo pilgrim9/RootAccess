@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "Bueno, ahora vamos a ordenar un poco. Hay un archivo que quiero que muevas
     de lugar. El archivo es <color=#E3A10E >TioBorracho.png </color>. Para encontrarlo
-    hay que abrir algunas carpetas. Ejecuta estos comandos, en orden:\nOPEN <color=#E200FF>Matias</color>
-    \nOPEN <color=#E200FF>Imagenes</color> \nOPEN <color=#E200FF>Trabajo</color>"
+    hay que abrir algunas carpetas. Ejecuta estos comandos, en orden:\n1. OPEN <color=#E200FF>Matias</color>
+    \n2. OPEN <color=#E200FF>Imagenes</color> \n3. OPEN <color=#E200FF>Trabajo</color>"
   type: 0
