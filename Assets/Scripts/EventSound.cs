@@ -29,7 +29,7 @@ public class EventSound : MonoBehaviour
         StartCoroutine(RandomSound(randomTime));
     }
 
-    void MissionCompleteSound() 
+    public void MissionCompleteSound() 
     {
         sourceMission.PlayOneShot(missionSound);
     }
