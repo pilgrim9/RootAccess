@@ -2109,6 +2109,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
+  firstMission: 1
 --- !u!4 &1395162781
 Transform:
   m_ObjectHideFlags: 0
@@ -4580,6 +4581,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Console
       objectReference: {fileID: 0}
+    - target: {fileID: 5636969009253843789, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: users.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5636969009253843789, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: users.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 35aecf9c5cf792d4ebdcb6602fc47b52, type: 2}
+    - target: {fileID: 5636969009253843789, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: users.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: d1f1f2f10c8ac0440b18c80a597b3630, type: 2}
     - target: {fileID: 8069907479341327571, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
       propertyPath: m_Color.b
       value: 0.18039216
