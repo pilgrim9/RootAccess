@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip lowTime;
-    public AudioClip alarm;
 
     public Animation fade;
     private void Awake()
