@@ -10,11 +10,16 @@ public class GameManager : MonoBehaviour
     public UnityEvent onGameStart;
     public UnityEvent onGameEnd;
 
+    private void Start()
+    {
+        startGame();
+    }
     public void startGame()
     {
         gameStarted = true;
         secondsRemaining = minutesPerDay * 60;
         onGameStart.Invoke();
+        MailMission.instance.CreateMission();
     }
     private void Update()
     {

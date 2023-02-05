@@ -41,7 +41,7 @@ public class MailMission : MonoBehaviour
         }
     }
 
-    void CreateMission()
+    public void CreateMission()
     {
         MissionSO missionTemplate = SelectMission();
 
@@ -67,6 +67,7 @@ public class MailMission : MonoBehaviour
             currentMission = new ActiveMission(file, users[randomUser].Name, "", missionTemplate.type);
 
         }
+        print(missionText);
         onMissionCreated.Invoke(missionText);
     }
 
