@@ -8,6 +8,8 @@ public class PaymentManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalText;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] LifeCost[] lifeCosts;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class PaymentManager : MonoBehaviour
     }
     void NextDay()
     {
+        audioSource.PlayOneShot(audioClip);
         GameManager.instance.startGame();
     }
 }
