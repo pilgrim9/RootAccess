@@ -670,6 +670,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &336610640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+  m_PrefabInstance: {fileID: 7489661708023190798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a240f06ae0ccb34eaea0b37b4864b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &344823981 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4672657749693933663, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
@@ -4242,6 +4253,34 @@ PrefabInstance:
     - target: {fileID: 2146112574422165381, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336610640}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PaymentManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
