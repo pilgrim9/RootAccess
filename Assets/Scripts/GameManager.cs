@@ -3,22 +3,29 @@ using UnityEngine.Events;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
-    public int minutesPerDay = 3;
+    public static GameManager instance;
+
+    public float minutesPerDay = 0.1f;
     public float elapsedTime = 0f;
     public bool gameStarted = false;
 
     public TMP_Text timerText;
-    public UnityEvent onGameStart;
-    public UnityEvent onGameEnd;
+    public UnityEvent onDayStart;
+    public UnityEvent onDayEnd;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         startGame();
     }
     public void startGame()
     {
+        elapsedTime = 0f;
         gameStarted = true;
-        onGameStart.Invoke();
+        onDayStart.Invoke();
         MailMission.instance.CreateMission();
     }
     private void Update()
@@ -37,7 +44,7 @@ public class GameManager : MonoBehaviour
     public void endGame()
     {
         gameStarted = false;
-        onGameEnd.Invoke();
+        onDayEnd.Invoke();
     }
 
     public string getTime()

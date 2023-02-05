@@ -6,6 +6,7 @@ public class PaymentManager : MonoBehaviour
     public static PaymentManager instance;
     public int money, total;
     [SerializeField] TextMeshProUGUI totalText;
+    [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] LifeCost[] lifeCosts;
 
     private void Awake()
@@ -17,6 +18,10 @@ public class PaymentManager : MonoBehaviour
         total = money;
         lifeCosts = FindObjectsOfType<LifeCost>();
     }
+    public void UpdateMoney() {
+        moneyText.text = "Momney: " + money;
+    }
+
     public void UpdateTotal(LifeCost lifeCost)
     {
         if (lifeCost.isPaid) total -= lifeCost.cost;
@@ -36,6 +41,6 @@ public class PaymentManager : MonoBehaviour
     }
     void NextDay()
     {
-
+        GameManager.instance.startGame();
     }
 }
