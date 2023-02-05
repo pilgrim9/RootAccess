@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: finalMission
   m_EditorClassIdentifier: 
-  text: 
+  text: "Bien hecho!\nRecuerda que siempre puedes repasar los comandos en el panel
+    a la derecha.\n\nCreoque eso es todo por hoy. Quizas quieras ir casa que seguro
+    tienes algunas cuentas que <color=#30BABF>pagar</color>.\n\nHasta ma\xF1ana!"
   type: 0

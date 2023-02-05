@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: fifthMission
   m_EditorClassIdentifier: 
-  text: ">The Boss\nBueno, ahora vamos a ordenar un poco. Hay un archivo que quiero
-    que muevas de lugar. El archivo es <color=#E3A10E >TioBorracho.png </color>.
-    Para encontrarlo hay que abrir algunas carpetas. Ejecuta estos comandos, en orden:\nOPEN
-    <color=#E200FF>Matias</color> \nOPEN <color=#E200FF>Imagenes</color> \nOPEN <color=#E200FF>Trabajo</color>"
+  text: "Bueno, ahora vamos a ordenar un poco. Hay un archivo que quiero que muevas
+    de lugar. El archivo es <color=#E3A10E >TioBorracho.png </color>. Para encontrarlo
+    hay que abrir algunas carpetas. Ejecuta estos comandos, en orden:\nOPEN <color=#E200FF>Matias</color>
+    \nOPEN <color=#E200FF>Imagenes</color> \nOPEN <color=#E200FF>Trabajo</color>"
   type: 0

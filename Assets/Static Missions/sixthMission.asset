@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: sixthMission
   m_EditorClassIdentifier: 
-  text: "\n\nBueno, ahora vamos a ordenar un poco. Hay un archivo que quiero que
-    muevas de lugar. El archivo es <color=#E3A10E >TioBorracho.png </color>. Para
-    encontrarlo hay que abrir algunas carpetas. Ejecuta estos comandos, en orden:\nOPEN
-    <color=#E200FF>Matias</color> \nOPEN <color=#E200FF>Imagenes</color> \nOPEN <color=#E200FF>Trabajo</color>"
+  text: 'Ahora que estamos en la caperta <color=#E200FF>trabajo</color>, vamos a
+    mover el archivo a un lugar mas adecuado.  Para eso primero hay que cortarlo:
+
+    cut
+    <color=#E3A10E>TioBorracho.png</color>
+
+    Utiliza back para retroceder.
+
+    Ahora
+    open para entrar a <color=#E200FF>imagenes</color>.
+
+    Por ultimo, ejecuta
+    el comando paste.'
   type: 0
