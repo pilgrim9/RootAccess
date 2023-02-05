@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip recibe;
 
     public AudioSource audioSource;
+
+    public UnityEvent OnAnimFinish;
 
     public void PlayDay()
     {
@@ -18,6 +21,11 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.clip = recibe;
         audioSource.Play();
+    }
+    public void AnimFinish()
+    {
+        OnAnimFinish.Invoke();
+
     }
 
 }

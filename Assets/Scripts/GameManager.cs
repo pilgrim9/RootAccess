@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip lowTime;
     public AudioClip alarm;
+
+    public Animation fade;
     private void Awake()
     {
         instance = this;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
         audioSource.Stop();
         gameStarted = false;
         onDayEnd.Invoke();
+        fade.Play();
     }
 
     public string getTime()
