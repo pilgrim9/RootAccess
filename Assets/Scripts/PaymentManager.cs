@@ -11,6 +11,7 @@ public class PaymentManager : MonoBehaviour
     [SerializeField] LifeCost[] lifeCosts;
     [SerializeField] AudioClip audioClipWin, audioClipLose;
     [SerializeField] AudioSource source;
+    bool lose= false;
 
     
 
@@ -59,9 +60,11 @@ public class PaymentManager : MonoBehaviour
         }
         foreach  (LifeCost item in lifeCosts)
         {
-            if (!item.isPaid) item.LoseChance();             
+            if (!item.isPaid) item.LoseChance();
+            if (item.chances <= 0) lose = true;
         }
         money = total;
+        if(!lose)
         NextDay();
     }
     void NextDay()

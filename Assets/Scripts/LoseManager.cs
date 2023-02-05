@@ -7,6 +7,7 @@ public class LoseManager : MonoBehaviour
     public static LoseManager Instance;
     public UnityEvent OnLose;
     public TextMeshProUGUI loseText;
+    public AudioSource ambient;
     private void Awake()
     {
         Instance = this;
@@ -19,6 +20,7 @@ public class LoseManager : MonoBehaviour
     {
         loseText.text = message;
         PlayAnim();
+        ambient.mute= true;
     }
     public void AnimFinish()
     {

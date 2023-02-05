@@ -692,6 +692,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   loseText: {fileID: 599429860}
+  ambient: {fileID: 1761887710}
 --- !u!82 &347527200
 AudioSource:
   m_ObjectHideFlags: 0
