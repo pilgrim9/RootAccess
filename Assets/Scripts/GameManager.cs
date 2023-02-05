@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void endGame()
     {
+        audioSource.Stop();
         gameStarted = false;
         onDayEnd.Invoke();
     }
