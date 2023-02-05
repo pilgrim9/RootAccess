@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeCost : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class LifeCost : MonoBehaviour
     }
     void Lose()
     {
-        print("PerdisteCapo");
+        SceneManager.LoadScene(0);
     } 
     public void LoseChance()
     {
