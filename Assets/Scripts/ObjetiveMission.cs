@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class ActiveMission
@@ -29,6 +30,9 @@ public class ActiveMission
             Debug.Log(FileSystem.instance.currentFolder.ContainsFile(this.file));
             Debug.Log(FileSystem.instance.currentFolder.name);
             Debug.Log(this.file);
+            Debug.Log(command);
+            Debug.Log(place);
+            Debug.Log(file);
 
             if (command == "paste" && place.Contains(user) && place.Contains(folder) && FileSystem.instance.currentFolder.ContainsFile(this.file)) 
             {

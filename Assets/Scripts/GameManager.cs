@@ -31,8 +31,7 @@ public class GameManager : MonoBehaviour
         if (firstMission)
         {
             firstMission = false;
-            MailMission.instance.CreateMission(FirstMission);
-
+            MailMission.instance.StartFirstMission(FirstMission);
         }
         else
         {

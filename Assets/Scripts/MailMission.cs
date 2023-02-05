@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Windows;
-
+using System;
 public class MailMission : MonoBehaviour
 
 {
@@ -13,6 +13,7 @@ public class MailMission : MonoBehaviour
 
     public ActiveMission currentMission;
     public UnityEvent onMissionComplete;
+    public event Action onMissionCompleteAction;
     public UnityEvent<string> onMissionCreated;
     
 
@@ -52,6 +53,14 @@ public class MailMission : MonoBehaviour
     public void CreateRandomMission()
     {
         CreateMission(SelectMission());
+    }
+
+    public void StartFirstMission(MissionSO firstMission)
+    {
+        string missionText = firstMission.text;
+        currentMission = new ActiveMission("TioBorracho.png", "matias", "Navidad", MissionType.Move);
+        onMissionCreated.Invoke(missionText);
+        print(missionText);
     }
 
     public void CreateMission(MissionSO missionTemplate)
