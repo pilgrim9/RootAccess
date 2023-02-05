@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Windows;
 
 public class MailMission : MonoBehaviour
 
@@ -59,14 +60,15 @@ public class MailMission : MonoBehaviour
         missionText = missionText.Replace("{player}", playerName);
         string file = CreateFile();
 
+        OSFolder userFolder = FileSystem.instance.root.GetFolder(users[randomUser].name);
         if (missionTemplate.type == MissionType.Move)
         {
             int randomFolder = Random.Range(0, users[randomUser].folders.Count);
-            missionText = missionText.Replace("{folder}", users[randomUser].folders[randomFolder].name);
+            missionText = missionText.Replace("{folder}", userFolder.subfolders[randomFolder].name);
 
             missionText = missionText.Replace("{file}", file);
-            AddFile(users[randomUser], file, users[randomUser].folders[randomFolder].name);
-            currentMission = new ActiveMission(file, users[randomUser].Name, users[randomUser].folders[randomFolder].name, missionTemplate.type);
+            AddFile(userFolder, file, userFolder.subfolders[randomFolder].name);
+            currentMission = new ActiveMission(file, users[randomUser].Name, userFolder.subfolders[randomFolder].name, missionTemplate.type);
         }
         else
         {
@@ -94,7 +96,7 @@ public class MailMission : MonoBehaviour
         return file;
     }
 
-    void AddFile(UserSO user, string file, string folder)
+    void AddFile(OSFolder folderObject, string file, string folder)
     {
         OSFile oSFile = new OSFile();
         oSFile.name = file;
@@ -102,26 +104,26 @@ public class MailMission : MonoBehaviour
 
         int isFilesInFolderMother = Random.Range(0, 4);
 
-        if (isFilesInFolderMother == 0) user.files.Add(oSFile);
+        if (isFilesInFolderMother == 0) folderObject.files.Add(oSFile);
 
         else
         {
-            int randomFolder = Random.Range(0, user.folders.Count);
+            int randomFolder = Random.Range(0, folderObject.subfolders.Count);
 
-            if (user.folders[randomFolder].subfolders.Count == 0 && user.folders[randomFolder].name != folder) user.folders[randomFolder].files.Add(oSFile);
-            else if (user.folders[randomFolder].subfolders.Count == 0)
+            if (folderObject.subfolders[randomFolder].subfolders.Count == 0 && folderObject.subfolders[randomFolder].name != folder) folderObject.subfolders[randomFolder].files.Add(oSFile);
+            else if (folderObject.subfolders[randomFolder].subfolders.Count == 0)
             {
-                AddFile(user, file, folder);
+                AddFile(folderObject, file, folder);
                 return;
             }
             else
             {
                 int folderOrSubfolder = Random.Range(0, 3);
-                if (folderOrSubfolder == 0) user.folders[randomFolder].files.Add(oSFile);
+                if (folderOrSubfolder == 0) folderObject.subfolders[randomFolder].files.Add(oSFile);
                 else
                 {
-                    int randomSubfolder = Random.Range(0, user.folders[randomFolder].subfolders.Count);
-                    user.folders[randomFolder].subfolders[randomSubfolder].Add(oSFile);
+                    int randomSubfolder = Random.Range(0, folderObject.subfolders[randomFolder].subfolders.Count);
+                    folderObject.subfolders[randomFolder].subfolders[randomSubfolder].Add(oSFile);
                 }
             }
         }
