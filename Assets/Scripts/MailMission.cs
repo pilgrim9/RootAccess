@@ -8,7 +8,7 @@ public class MailMission : MonoBehaviour
     public MissionSO install, move;
     public static MailMission instance;
 
-    public List<string> files, apps, firstFileName, secondFileName, formatName, filesCreates;
+    public List<string> files, apps, firstFileName,  formatName, filesCreates;
 
     public ActiveMission currentMission;
     public UnityEvent onMissionComplete;
@@ -83,16 +83,14 @@ public class MailMission : MonoBehaviour
     string CreateFile()
     {
         int randomFirst = Random.Range(0, firstFileName.Count);
-        int randomSecond = Random.Range(0, secondFileName.Count);
         int randomFormat = Random.Range(0, formatName.Count);
-        string file = firstFileName[randomFirst] + secondFileName[randomSecond] + Random.Range(1, 10) + formatName[randomFormat];
+        string file = firstFileName[randomFirst] +  Random.Range(1, 100) + formatName[randomFormat];
 
         while (filesCreates.Contains(file))
         {
             randomFirst = Random.Range(0, firstFileName.Count);
-            randomSecond = Random.Range(0, secondFileName.Count);
 
-            file = firstFileName[randomFirst] + " " + secondFileName[randomSecond] + Random.Range(1, 1000);
+            file = firstFileName[randomFirst] + Random.Range(1, 100) + formatName[randomFormat];
         }
         return file;
     }
