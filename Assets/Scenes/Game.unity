@@ -1659,6 +1659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: missions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2468,6 +2472,7 @@ MonoBehaviour:
   onGameEnd:
     m_PersistentCalls:
       m_Calls: []
+  FirstMission: {fileID: 0}
 --- !u!4 &1395162781
 Transform:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class MailMission : MonoBehaviour
         if (currentMission.isMissionComplete(command, place, file))
         {
             onMissionComplete.Invoke();
-            CreateMission();
+            CreateMission(SelectMission());
         }
     }
     private UserSO[] users { get
@@ -49,9 +49,8 @@ public class MailMission : MonoBehaviour
         }
     }
 
-    public void CreateMission()
+    public void CreateMission(MissionSO missionTemplate)
     {
-        MissionSO missionTemplate = SelectMission();
 
         string missionText = missionTemplate.text;
 

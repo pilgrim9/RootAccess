@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent onGameStart;
     public UnityEvent onGameEnd;
 
+    public MissionSO FirstMission;
     private void Start()
     {
         startGame();
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         gameStarted = true;
         onGameStart.Invoke();
-        MailMission.instance.CreateMission();
+        MailMission.instance.CreateMission(FirstMission);
     }
     private void Update()
     {
