@@ -469,9 +469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f634c7244a45cd548bd1ac3126caa31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1180783402}
   idText: {fileID: 1456005557}
   emailText: {fileID: 1452035784}
+  nameText: {fileID: 1988042174}
 --- !u!114 &286332852
 MonoBehaviour:
   m_ObjectHideFlags: 0
