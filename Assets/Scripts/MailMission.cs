@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Windows;
+using TMPro;
 
 public class MailMission : MonoBehaviour
 
@@ -14,7 +15,8 @@ public class MailMission : MonoBehaviour
     public ActiveMission currentMission;
     public UnityEvent onMissionComplete;
     public UnityEvent<string> onMissionCreated;
-    
+
+    public TextMeshProUGUI textMails;
 
     public string playerName;
     private void Awake()
@@ -80,7 +82,7 @@ public class MailMission : MonoBehaviour
             currentMission = new ActiveMission(file, users[randomUser].Name, "", missionTemplate.type);
 
         }
-        print(missionText);
+        textMails.text = missionText;
         onMissionCreated.Invoke(missionText);
     }
 
