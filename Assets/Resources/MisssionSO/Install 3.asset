@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: Install 3
   m_EditorClassIdentifier: 
-  text: ">{user},\nHola {player}, \xBFMe recuerdas?"
+  text: "{user}\n\nHola {player}, \xBFComo va todo?\nNecesito un favor. Me <color=#3AB741>instalarias</color>
+    {app}.\nGracias! Te debo una!"
   type: 1

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: Install 1
   m_EditorClassIdentifier: 
-  text: ">{user},\n\xA1Ayudaaaa!, No se instalar la app: {app}, Podrias darme una
-    mano? "
+  text: "{user}\n\n\xA1Ayudaaaa!, No se <color=#3AB741>instalar</color> la app: {app},
+    en mis archivos! Me podrias dar una mano?"
   type: 1

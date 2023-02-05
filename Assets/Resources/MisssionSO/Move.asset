@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
   m_Name: Move
   m_EditorClassIdentifier: 
-  text: ">{user},\n{player}, perd\xED el archivo {file}, estaba en la carpeta {folder},
-    encontralo y ponelo en su lugar."
+  text: '{user}
+
+
+    {player}, estuve reorganizando y no encuentro el archivo {file}.
+    Lo puedes buscar y <color=#3AB741>moverlo</color> a {folder}? '
   type: 0
