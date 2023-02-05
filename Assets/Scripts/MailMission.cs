@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Windows;
 using System;
+using Random = UnityEngine.Random; 
 public class MailMission : MonoBehaviour
 
 {
