@@ -33,6 +33,7 @@ public class CommandLine : MonoBehaviour
     
     public string InputCommand(string input)
     {
+        Debug.Log(input);
         clearOutput();
         string[] parameters = input.Split(" ");
         if (parameters.Length > 2)
@@ -40,6 +41,7 @@ public class CommandLine : MonoBehaviour
             output = "Too many arguments";
             return getOutput(input);
         }
+        Debug.Log(parameters);
         
         string command = parameters[0].ToLower();
         string parameter = parameters.Length == 1? "" : parameters[1].ToLower();
@@ -64,7 +66,7 @@ public class CommandLine : MonoBehaviour
                  FileSystem.instance.currentFolder.FolderPath.Replace("\\","</color>\\<color=" + Colors.FileColor + ">")
                  + "</color>> " 
                  + input + "\n" + output;
-        return colorCommands(input);
+        return colorCommands(newOutput);
     }
 
     public string colorCommands(string input)
