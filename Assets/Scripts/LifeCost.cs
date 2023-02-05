@@ -7,6 +7,7 @@ public class LifeCost : MonoBehaviour
     [SerializeField] TextMeshProUGUI costText;
     public bool isPaid;
     public int chances, cost;
+    public GameObject[] chancesVisual;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class LifeCost : MonoBehaviour
     public void LoseChance()
     {
         chances--;
+        chancesVisual[chances].SetActive(false);
         if (chances <= 0) Lose();
     }
     public void togglePaid(bool value)

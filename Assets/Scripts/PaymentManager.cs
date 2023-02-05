@@ -22,7 +22,7 @@ public class PaymentManager : MonoBehaviour
     {
         moneyPerMission = 30;
 
-        lifeCosts = FindObjectsOfType<LifeCost>();
+        //lifeCosts = FindObjectsOfType<LifeCost>();
         MailMission.instance.onMissionCompleteAction += AddMoney;
 
     }
