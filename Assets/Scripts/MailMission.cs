@@ -94,7 +94,8 @@ public class MailMission : MonoBehaviour
         }
         
         onMissionCreated.Invoke(missionText);
-        
+        emailText.text = missionText;
+
     }
 
     string CreateFile()
