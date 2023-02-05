@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public MissionSO FirstMission;
     public bool firstMission = true;
 
+    public AudioClip lowTime;
     private void Awake()
     {
         instance = this;
@@ -48,6 +49,11 @@ public class GameManager : MonoBehaviour
             if (elapsedTime > minutesPerDay * 60)
             {
                 endGame();
+            }
+            float percentageElapsed = elapsedTime / (minutesPerDay * 60f);
+            if (percentageElapsed > 0.8f)
+            {
+                AudioSource.PlayClipAtPoint(lowTime, transform.position);
             }
         }
     }
