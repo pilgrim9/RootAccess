@@ -8,6 +8,7 @@ public class LifeCost : MonoBehaviour
     public bool isPaid;
     public int chances, cost;
     public GameObject[] chancesVisual;
+    public string loseMessage;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class LifeCost : MonoBehaviour
     }
     void Lose()
     {
-        SceneManager.LoadScene(0);
+        LoseManager.Instance.Lose(loseMessage);
     } 
     public void LoseChance()
     {
