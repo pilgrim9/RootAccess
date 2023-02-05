@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent onDayStart;
     public UnityEvent onDayEnd;
     public MissionSO FirstMission;
-    public bool firstMission = true;
+    public bool playTutorial = true;
 
     public AudioSource audioSource;
     public AudioClip lowTime;
@@ -25,44 +25,47 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        startGame();
+        startTutorial();
     }
-    public void startGame()
+
+    private void startTutorial()
     {
-        elapsedTime = 0f;
-        gameStarted = true;
-        onDayStart.Invoke();
-        if (firstMission)
+        if (playTutorial)
         {
-            firstMission = false;
-            MailMission.instance.StartFirstMission(FirstMission);
+            MailMission.instance.StartFirstMission();
+            onDayStart.Invoke();
         }
         else
         {
-            MailMission.instance.CreateMission();
+            startGame();
         }
+    }
+    public void startGame()
+    {
+        playTutorial = false;
+        elapsedTime = 0f;
+        gameStarted = true;
+        onDayStart.Invoke();
+        MailMission.instance.CreateMission();
 
     }
     private void Update()
     {
-        if (gameStarted)
+        if (!gameStarted) return;
+        if (playTutorial) return;
+        
+        timerText.text = getTime();
+        elapsedTime += Time.deltaTime;
+        if (elapsedTime > minutesPerDay * 60)
         {
-            timerText.text = getTime();
-            elapsedTime += Time.deltaTime;
-            if (elapsedTime > minutesPerDay * 60)
-            {
-                
-                
-                endGame();
-
-            }
-            float percentageElapsed = elapsedTime / (minutesPerDay * 60f);
-            if (percentageElapsed > 0.8f)
-            {
-                if (audioSource.isPlaying || !gameStarted) return;
-                audioSource.clip = lowTime;
-                audioSource.Play();
-            }
+            endGame();
+        }
+        float percentageElapsed = elapsedTime / (minutesPerDay * 60f);
+        if (percentageElapsed > 0.8f)
+        {
+            if (audioSource.isPlaying || !gameStarted) return;
+            audioSource.clip = lowTime;
+            audioSource.Play();
         }
     }
 

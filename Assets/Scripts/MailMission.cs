@@ -21,6 +21,7 @@ public class MailMission : MonoBehaviour
     public UnityEvent<string> onMissionCreated;
 
     public TextMeshProUGUI emailText;
+    public MissionSO[] tutorialMissions;
 
 
     public string playerName;
@@ -48,7 +49,15 @@ public class MailMission : MonoBehaviour
         {
             onMissionCompleteAction?.Invoke();
             onMissionComplete.Invoke();
-            CreateMission();
+            if (currentMission.isTutorial)
+            {
+                TutorialMission mission = (TutorialMission)currentMission;
+                mission.callback.Invoke();
+            }
+            else
+            {
+                CreateMission();
+            }
         }
     }
     private UserSO[] users { get
@@ -57,10 +66,73 @@ public class MailMission : MonoBehaviour
         }
     }
 
-    public void StartFirstMission(MissionSO firstMission)
+    public void StartFirstMission()
     {
-        string missionText = firstMission.text;
-        currentMission = new ActiveMission("TioBorracho.png", "matias", "Navidad", MissionType.Move);
+        string missionText = tutorialMissions[0].text;
+        TutorialMission mission = new TutorialMission("", "", "matias", 0, "open");
+        
+        mission.callback += StartSecondMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }
+    public void StartSecondMission()
+    {
+        string missionText = tutorialMissions[1].text;
+        TutorialMission mission = new TutorialMission("", "", "", 0, "back");
+        
+        mission.callback += StartThirdMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }
+    public void StartThirdMission()
+    {
+        string missionText = tutorialMissions[2].text;
+        TutorialMission mission = new TutorialMission("photoshop", "", "", 0, "download");
+        
+        mission.callback += StartFourthMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }public void StartFourthMission()
+    {
+        string missionText = tutorialMissions[3].text;
+        TutorialMission mission = new TutorialMission("photoshop", "", "", 0, "install");
+        
+        mission.callback += StartFifthMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }public void StartFifthMission()
+    {
+        string missionText = tutorialMissions[4].text;
+        TutorialMission mission = new TutorialMission("", "", "trabajo", 0, "open");
+        
+        mission.callback += StartSixthMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }public void StartSixthMission()
+    {
+        string missionText = tutorialMissions[5].text;
+        TutorialMission mission = new TutorialMission("", "", "imagenes", 0, "paste");
+        
+        mission.callback += StartSeventhMission;
+        currentMission = mission;
+        onMissionCreated.Invoke(missionText);
+        updateEmailText(missionText);
+    }
+    void callEnd()
+    {
+        GameManager.instance.endGame(); 
+    }
+    public void StartSeventhMission()
+    {
+        string missionText = tutorialMissions[6].text;
+        // no callback
+        
+        Invoke(nameof(callEnd), 12);
         onMissionCreated.Invoke(missionText);
         updateEmailText(missionText);
     }

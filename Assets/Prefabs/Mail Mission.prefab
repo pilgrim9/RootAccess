@@ -89,4 +89,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   emailText: {fileID: 0}
+  tutorialMissions:
+  - {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
+  - {fileID: 11400000, guid: 1ba684c7dec2c5d428d886395b8bcf65, type: 2}
+  - {fileID: 11400000, guid: 9fac9967495cc5046b0d32c8c7d0c4ca, type: 2}
+  - {fileID: 11400000, guid: 1af100e4dddeed04bae4f43b80f623a8, type: 2}
+  - {fileID: 11400000, guid: b98b8fdcf22cc6f46bdbb8d57b340704, type: 2}
+  - {fileID: 11400000, guid: 3da28cb9a6fc1344c81378072da8ed3d, type: 2}
+  - {fileID: 11400000, guid: de8dd8c9115a04c4ba567cc071557039, type: 2}
   playerName: 
