@@ -10,10 +10,20 @@ public class InputController : MonoBehaviour
     public TMP_InputField InputField;
 
     public string consolePlaceholder = "Buen dia!";
+
     private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
         text.text = consolePlaceholder;
-        //text.text += CommandLine.instance.InputCommand("List");
+        if (!GameManager.instance.playTutorial)
+        {
+            FileSystem.instance.currentFolder = FileSystem.instance.root;
+            text.text += CommandLine.instance.InputCommand("List");
+        }
     }
 
     // Update is called once per frame
