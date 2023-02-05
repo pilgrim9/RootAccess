@@ -3,7 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Windows;
 using System;
-using Random = UnityEngine.Random; 
+using Random = UnityEngine.Random;
+using TMPro;
+
 public class MailMission : MonoBehaviour
 
 {
@@ -16,7 +18,9 @@ public class MailMission : MonoBehaviour
     public UnityEvent onMissionComplete;
     public event Action onMissionCompleteAction;
     public UnityEvent<string> onMissionCreated;
-    
+
+    public TextMeshProUGUI emailText;
+
 
     public string playerName;
     private void Awake()
@@ -62,12 +66,12 @@ public class MailMission : MonoBehaviour
         string missionText = firstMission.text;
         currentMission = new ActiveMission("TioBorracho.png", "matias", "Navidad", MissionType.Move);
         onMissionCreated.Invoke(missionText);
-        print(missionText);
+        emailText.text = missionText;
+        
     }
 
     public void CreateMission(MissionSO missionTemplate)
     {
-
         string missionText = missionTemplate.text;
 
         int randomUser = Random.Range(0, users.Length);
@@ -91,8 +95,9 @@ public class MailMission : MonoBehaviour
             currentMission = new ActiveMission(file, users[randomUser].Name, "", missionTemplate.type);
 
         }
-        print(missionText);
+        
         onMissionCreated.Invoke(missionText);
+        
     }
 
     string CreateFile()

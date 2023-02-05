@@ -1320,6 +1320,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: aad898b197cc2bd4fad4596e0456291d, type: 3}
     - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: emailText
+      value: 
+      objectReference: {fileID: 2940998424270860268}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
       propertyPath: textMails
       value: 
       objectReference: {fileID: 2940998424270860268}
