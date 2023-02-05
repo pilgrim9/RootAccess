@@ -40,6 +40,7 @@ public class MailMission : MonoBehaviour
     {
         if (currentMission.isMissionComplete(command, place, file))
         {
+            onMissionCompleteAction?.Invoke();
             onMissionComplete.Invoke();
             CreateMission(SelectMission());
         }
