@@ -191,9 +191,10 @@ public class CommandLine : MonoBehaviour
             return;
         }
 
-        if (FileSystem.instance.currentFolder.ParentFolder == null)
+        if (FileSystem.instance.currentFolder.ParentFolder == null || FileSystem.instance.currentFolder.ParentFolder.getName() == "")
         {
             output = "root folder doesn't have a parent folder";
+            return;
         }
         FileSystem.instance.currentFolder = FileSystem.instance.currentFolder.ParentFolder;
         List("");
@@ -214,6 +215,7 @@ public class CommandLine : MonoBehaviour
 
     public void ListFolders()
     {
+        OSFolder current = FileSystem.instance.currentFolder;
         output += "This folder contains "+FileSystem.instance.currentFolder.subfolders.Count+" folders:";
         foreach (var folder in FileSystem.instance.currentFolder.subfolders)
         {
