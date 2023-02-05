@@ -17,6 +17,8 @@ public class MailMission : MonoBehaviour
     public UnityEvent<string> onMissionCreated;
 
     public TextMeshProUGUI textMails;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     public string playerName;
     private void Awake()
@@ -58,7 +60,7 @@ public class MailMission : MonoBehaviour
 
     public void CreateMission(MissionSO missionTemplate)
     {
-
+        audioSource.PlayOneShot(audioClip);
         string missionText = missionTemplate.text;
 
         int randomUser = Random.Range(0, users.Length);
