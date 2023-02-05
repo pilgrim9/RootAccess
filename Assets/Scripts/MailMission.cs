@@ -116,7 +116,7 @@ public class MailMission : MonoBehaviour
     }public void StartSixthMission()
     {
         string missionText = tutorialMissions[5].text;
-        TutorialMission mission = new TutorialMission("", "", "imagenes", 0, "paste");
+        TutorialMission mission = new TutorialMission("", "", "navidad", 0, "paste");
         
         mission.callback += StartSeventhMission;
         currentMission = mission;
