@@ -25,7 +25,7 @@ public class MailMission : MonoBehaviour
 
     void Start()
     {
-        
+        missions = Resources.LoadAll<MissionSO>("MisssionSO");
         CommandLine.instance.onCommand += OnCommand;
     }
 
