@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PaymentManager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class PaymentManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI totalText;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] LifeCost[] lifeCosts;
+    [SerializeField] Toggle[] toggles;
     [SerializeField] AudioClip audioClipWin, audioClipLose;
     [SerializeField] AudioSource source;
+    [SerializeField] GameObject debt;
     bool lose= false;
 
     
@@ -41,7 +44,7 @@ public class PaymentManager : MonoBehaviour
     
     public void UpdateTotal()
     {
-        total = money;
+        total = (!GameManager.instance.playTutorial) ? money : money-100;
         totalText.text = "$" + total;
     }
     public void UpdateTotal(LifeCost lifeCost)
@@ -64,11 +67,17 @@ public class PaymentManager : MonoBehaviour
             if (item.chances <= 0) lose = true;
         }
         money = total;
+        foreach (var item in toggles)
+        {
+            item.isOn = false;
+        }
+        
         if(!lose)
         NextDay();
     }
     void NextDay()
     {
+        debt.SetActive(false);
         source.PlayOneShot(audioClipWin);
         GameManager.instance.startGame();
     }
