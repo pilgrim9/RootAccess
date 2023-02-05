@@ -96,7 +96,7 @@ public class CommandLine : MonoBehaviour
             return;
         }
 
-        if (!MailMission.instance.apps.Contains(parameter))
+        if (!MailMission.instance.apps.Contains(parameter, StringComparer.OrdinalIgnoreCase))
         {
             output = "Error: That is not a file you can download.";
             OutputDownloadables();
@@ -109,10 +109,12 @@ public class CommandLine : MonoBehaviour
             return;
         }
         FileSystem.instance.currentFolder.Add(new OSFile(parameter));
+        output = parameter + " downloaded successfully";
+        List("");
     }
     public void OutputDownloadables()
     {
-        output += "\n You can download these files:\n";
+        output += "\nYou can download these files:";
         foreach (var name in MailMission.instance.apps)
         {
             output += "\n"+ name ;
@@ -192,6 +194,7 @@ public class CommandLine : MonoBehaviour
             output = "The list command doesn't require parameters";
             return;
         }
+        output += "\n";
         ListFolders();
         ListFiles();
     }
