@@ -12,6 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa2115d8f783944e8b9c7675790525f, type: 3}
   m_Name: Ariel
   m_EditorClassIdentifier: 
-  Name: 
-  folders: []
+  Name: Ariel
+  folders:
+  - name: Trabajo
+    subfolders: []
+    files:
+    - name: Horarios.pdf
+  - name: Privado
+    subfolders:
+    - name: NoAbrir
+      subfolders: []
+      files:
+      - name: Pikachu.jpg
+      - name: Goku.jpg
+      - name: Naruto.jpg
+    - name: Restaurantes
+      subfolders: []
+      files:
+      - name: Italiano.pdf
+    files: []
   files: []

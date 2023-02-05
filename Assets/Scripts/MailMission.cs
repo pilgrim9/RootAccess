@@ -14,9 +14,12 @@ public class MailMission : MonoBehaviour
     public UnityEvent onMissionComplete;
     public UnityEvent<string> onMissionCreated;
     UserSO[] users;
+
+    public string playerName;
     private void Awake()
     {
         instance = this;
+        playerName = PlayerPrefs.GetString("Name");
     }
 
     void Start()
@@ -48,7 +51,8 @@ public class MailMission : MonoBehaviour
         string missionText = missionTemplate.text;
 
         int randomUser = Random.Range(0, users.Length);
-        missionText = missionText.Replace("{player}", users[randomUser].Name);
+        missionText = missionText.Replace("{user}", users[randomUser].Name);
+        missionText = missionText.Replace("{player}", playerName);
         string file = CreateFile();
 
         if (missionTemplate.type == MissionType.Move)
