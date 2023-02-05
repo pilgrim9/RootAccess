@@ -1335,6 +1335,34 @@ PrefabInstance:
       propertyPath: missions.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2940998424270860268}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TMPro.TMP_Text, Unity.TextMeshPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: onMissionCreated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2288,7 +2316,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
-  firstMission: 0
+  firstMission: 1
 --- !u!4 &1395162781
 Transform:
   m_ObjectHideFlags: 0
@@ -2322,6 +2350,8 @@ MonoBehaviour:
   totalText: {fileID: 198815614}
   moneyText: {fileID: 84578279}
   lifeCosts: []
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!224 &1425597720 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 48465756854039073, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
