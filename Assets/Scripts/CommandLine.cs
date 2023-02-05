@@ -38,7 +38,7 @@ public class CommandLine : MonoBehaviour
         string[] parameters = input.Split(" ");
         if (parameters.Length > 2)
         {
-            output = "Too many arguments";
+            output = "Contiene muchos argumentos";
             return getOutput(input);
         }
         Debug.Log(parameters);
@@ -48,7 +48,7 @@ public class CommandLine : MonoBehaviour
 
         if (!commands.Keys.Contains(command))
         {
-            output = "Command "+command+" does not exist";
+            output = "Comando "+command+" no existe";
             return getOutput( input);
         }
         
@@ -61,7 +61,7 @@ public class CommandLine : MonoBehaviour
 
     private string getOutput(string input)
     {
-        string newOutput = "\n" + "Current folder:" + 
+        string newOutput = "\n" + "Carpeta actual:" + 
                  "<color=" + Colors.FileColor + ">" +
                  FileSystem.instance.currentFolder.FolderPath.Replace("\\","</color>\\<color=" + Colors.FileColor + ">")
                  + "</color>> " 
@@ -83,14 +83,14 @@ public class CommandLine : MonoBehaviour
     {
         if (ParameterVoid(parameter))
         {
-            output = "Please input a folder name";
+            output = "Por favor, ingresa el nombre de la carpeta";
             return;
         }
 
         Debug.Log(parameter);
         if (!FileSystem.instance.currentFolder.ContainsFolder(parameter))
         {
-            output = "Folder \"" + parameter + "\" doesn't exist in current folder";
+            output = "La carpeta \"" + parameter + "\" no existe en la carpeta en la que te encuentras";
             return;
         }
 
@@ -104,30 +104,30 @@ public class CommandLine : MonoBehaviour
     {
         if (ParameterVoid(parameter))
         {
-            output = "Error: Please specify a file to download.";
+            output = "Error: Porfavor, especifique el nombre del archivo.";
             OutputDownloadables();
             return;
         }
 
         if (!MailMission.instance.apps.Contains(parameter, StringComparer.OrdinalIgnoreCase))
         {
-            output = "Error: That is not a file you can download.";
+            output = "Error: No es un archivo descargable.";
             OutputDownloadables();
             return;
         }
 
         if (FileSystem.instance.currentFolder.ContainsFile(parameter))
         {
-            output = "Error: You already downloaded this file.";
+            output = "Error: Archivo ya descargado.";
             return;
         }
         FileSystem.instance.currentFolder.Add(new OSFile(parameter));
-        output = parameter + " downloaded successfully";
+        output = parameter + " descarga completada";
         List("");
     }
     public void OutputDownloadables()
     {
-        output += "\nYou can download these files:";
+        output += "\nPuedes descargar las siguientes aplicaciones:";
         foreach (var name in MailMission.instance.apps)
         {
             output += "\n"+ name ;
@@ -137,35 +137,35 @@ public class CommandLine : MonoBehaviour
     {
         if (!MailMission.instance.apps.Contains(parameter, StringComparer.OrdinalIgnoreCase))
         {
-            output = "You can only install a downloaded file."; 
+            output = "Unicamente puedes instalar un archivo descargado."; 
             OutputDownloadables();
             return;
         }
         if (!FileSystem.instance.currentFolder.ContainsFile(parameter))
         {
-            output = "The file doesn't exist. You may need to download it first.";
+            output = "El archivo no existe, puede que necesites descargarlo primero.";
             return;
         }
         
         FileSystem.instance.currentFolder.Cut(parameter);
-        output = parameter + " app installed successfully!";
+        output = parameter + " aplicacion instalada correctamente!";
     }
     
     public void Cut(string file)
     {
         if (!FileSystem.instance.currentFolder.ContainsFile(file))
         {
-            output = "File does not exist in this folder";
+            output = "El archivo no existe en esta carpeta";
             return;
         }
 
         if (FileSystem.instance.clipboard != null && FileSystem.instance.clipboard.name !="")
         {
-            output = "You cannot cut while holding another file. Paste first please.";
+            output = "No puedes cortar un archivo hasta pegues el anterior.";
             return;
         }
         FileSystem.instance.clipboard = FileSystem.instance.currentFolder.Cut(file);
-        output = "Cut file " + file;
+        output = "Archivo cortado " + file;
         List("");
     }
     public void Paste(string parameters)
@@ -175,25 +175,25 @@ public class CommandLine : MonoBehaviour
         {
             FileSystem.instance.currentFolder.Add(FileSystem.instance.clipboard);
             FileSystem.instance.clipboard = null;
-            output = "File Pasted";
+            output = "Archivo pegado";
             List("");
         }
         else
         {
-            output = "Nothing to paste. You need to cut a file first.";
+            output = "Error, primero debes cortar un archivo.";
         }
     }
     public void Back(string parameter)
     {
         if (!ParameterVoid(parameter))
         {
-            output = "Back doesn't require parameters!";
+            output = "Back no requiere parametros!";
             return;
         }
 
         if (FileSystem.instance.currentFolder.ParentFolder == null || FileSystem.instance.currentFolder.ParentFolder.getName() == "")
         {
-            output = "root folder doesn't have a parent folder";
+            output = "No puedes ir mas hacia atras";
             return;
         }
         FileSystem.instance.currentFolder = FileSystem.instance.currentFolder.ParentFolder;
@@ -205,7 +205,7 @@ public class CommandLine : MonoBehaviour
     {
         if (!ParameterVoid(parameter))
         {
-            output = "The list command doesn't require parameters";
+            output = "List no requiere parametros!";
             return;
         }
         output += "\n";
@@ -216,7 +216,7 @@ public class CommandLine : MonoBehaviour
     public void ListFolders()
     {
         OSFolder current = FileSystem.instance.currentFolder;
-        output += "This folder contains "+FileSystem.instance.currentFolder.subfolders.Count+" folders:";
+        output += "Esta carpeta contiene "+FileSystem.instance.currentFolder.subfolders.Count+" carpetas:";
         foreach (var folder in FileSystem.instance.currentFolder.subfolders)
         {
             output += "\n -<color="+ Colors.FolderColor +">" + folder.getName() + "</color>";
@@ -225,7 +225,7 @@ public class CommandLine : MonoBehaviour
 
     public void ListFiles()
     {
-        output += "\nThis folder contains "+FileSystem.instance.currentFolder.files.Count+" files:";
+        output += "\nEsta carpeta contiene "+FileSystem.instance.currentFolder.files.Count+" archivos:";
         foreach (var file in FileSystem.instance.currentFolder.files)
         {
             output += "\n -<color="+ Colors.FileColor +">" + file.getName() + "</color>";
