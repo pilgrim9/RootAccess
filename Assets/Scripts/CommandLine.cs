@@ -5,6 +5,7 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class CommandLine : MonoBehaviour
 {
@@ -58,8 +59,22 @@ public class CommandLine : MonoBehaviour
 
     private string getOutput(string input)
     {
-        return "\n"+"Current folder:" + FileSystem.instance.currentFolder.FolderPath+"> "+input+
-               "\n"+output;
+        string newOutput = "\n" + "Current folder:" + 
+                 "<color=" + Colors.FileColor + ">" +
+                 FileSystem.instance.currentFolder.FolderPath.Replace("\\","</color>\\<color=" + Colors.FileColor + ">")
+                 + "</color>> " 
+                 + input + "\n" + output;
+        foreach (var command in commands.Keys)
+        {
+            newOutput = newOutput.Replace(command,"<color=" + Colors.CommandColor + ">" + command + "</color>", StringComparison.OrdinalIgnoreCase);
+        }
+        return newOutput;
+    }
+
+    public string highlightCommands(string input)
+    {
+        
+        return input;
     }
     private void clearOutput()
     {
