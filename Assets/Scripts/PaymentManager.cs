@@ -30,6 +30,7 @@ public class PaymentManager : MonoBehaviour
     {
         money += moneyPerMission;
         UpdateMoney();
+        UpdateTotal();
     }
     public void UpdateMoney() 
     {
