@@ -46,6 +46,6 @@ public class GameManager : MonoBehaviour
         float ElapsedMinutes = 8 * 60 * percentageElapsed;
         float ElapsedHours = Mathf.Floor(ElapsedMinutes / 60f);
         float extraMinutes = Mathf.Floor(ElapsedMinutes - ElapsedHours*60) ;
-        return  ElapsedHours + 9 + ":" + extraMinutes;
+        return ((ElapsedHours + 9) == 9 ? "09" : ElapsedHours + 9) + ":" + (extraMinutes < 10 ? "0" + extraMinutes : extraMinutes);
     }
 }
