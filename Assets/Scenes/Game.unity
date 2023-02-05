@@ -549,12 +549,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 314854215}
   enter: {fileID: 8300000, guid: 1239976b8e9e060418245da1210e5c71, type: 3}
-  mouse: {fileID: 0}
   keyBoard:
   - {fileID: 8300000, guid: 21b06e6e3a15b704dab247303756ba8c, type: 3}
   - {fileID: 8300000, guid: c5d2606ce9fd3aa4a926806f2df67ce6, type: 3}
   - {fileID: 8300000, guid: 6d85c257b1428c245b4166ce8513a076, type: 3}
   - {fileID: 8300000, guid: 74cae9dead049a746bde281e47074b49, type: 3}
+  mouse:
+  - {fileID: 8300000, guid: ed101324a9fbb12489f601d682721692, type: 3}
+  - {fileID: 8300000, guid: 33cf059cd4a91d1449ce89c0aacb1af0, type: 3}
+  - {fileID: 8300000, guid: 5f5c8de37cdabd146a6da6c8866a11e4, type: 3}
+  - {fileID: 8300000, guid: 6a8b6e59af287754baf0885468f2f446, type: 3}
 --- !u!82 &314854215
 AudioSource:
   m_ObjectHideFlags: 0
