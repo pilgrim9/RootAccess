@@ -30,8 +30,8 @@ public class FileSystem : MonoBehaviour
         foreach (var user in users)
         {
             OSFolder userFolder = new OSFolder(user.Name, parentFolder);
-            userFolder.subfolders = new List<OSFolder>(user.folders);
-            userFolder.files = new List<OSFile>(user.files);
+            userFolder.subfolders = Utils.Utils.DeepClone(user.folders);
+            userFolder.files = Utils.Utils.DeepClone(user.files);
             parentFolder.subfolders.Add(userFolder);
             ParentThisFolder(userFolder);
         }

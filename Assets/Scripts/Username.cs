@@ -10,6 +10,5 @@ public class Username : MonoBehaviour
         PlayerPrefs.SetString("Name", nameText.text.ToUpper());
         idText.text = PlayerPrefs.GetString("Name");
         emailText.text = PlayerPrefs.GetString("Name").ToLower()+ "@gmail.com";
-
     }
 }

@@ -122,9 +122,9 @@ public class CommandLine : MonoBehaviour
     }
     public void Install(string parameter)
     {
-        if (!MailMission.instance.apps.Contains(parameter))
+        if (!MailMission.instance.apps.Contains(parameter, StringComparer.OrdinalIgnoreCase))
         {
-            output = "You need to install you have downloaded."; 
+            output = "You can only install a downloaded file."; 
             OutputDownloadables();
             return;
         }
