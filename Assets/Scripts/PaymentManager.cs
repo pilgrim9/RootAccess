@@ -32,7 +32,7 @@ public class PaymentManager : MonoBehaviour
     }
     public void UpdateMoney() 
     {
-        moneyText.text = "Momney: " + money;
+        moneyText.text = "Dinero: " + money;
     }
 
     public void UpdateTotal(LifeCost lifeCost)
