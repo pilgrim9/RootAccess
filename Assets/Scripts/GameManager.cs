@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int minutesPerDay = 3;
-    public float secondsRemaining;
+    public float elapsedTime = 0f;
     public bool gameStarted = false;
-    
+
+    public TMP_Text timerText;
     public UnityEvent onGameStart;
     public UnityEvent onGameEnd;
 
@@ -17,7 +18,6 @@ public class GameManager : MonoBehaviour
     public void startGame()
     {
         gameStarted = true;
-        secondsRemaining = minutesPerDay * 60;
         onGameStart.Invoke();
         MailMission.instance.CreateMission();
     }
@@ -25,8 +25,9 @@ public class GameManager : MonoBehaviour
     {
         if (gameStarted)
         {
-            secondsRemaining -= Time.deltaTime;
-            if (secondsRemaining < 0)
+            timerText.text = getTime();
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime > minutesPerDay * 60)
             {
                 endGame();
             }
@@ -41,10 +42,10 @@ public class GameManager : MonoBehaviour
 
     public string getTime()
     {
-        float timeElapsed = minutesPerDay * 60 - secondsRemaining;
-        float simulationSecondsElapsed = 8 * 60 * 60 * timeElapsed / (minutesPerDay * 60);
-        int hours = Mathf.FloorToInt(simulationSecondsElapsed / 60 / 60) + 4;
-        int minutes = Mathf.FloorToInt(simulationSecondsElapsed / 60) - hours * 60;
-        return hours + ":" + minutes;
+        float percentageElapsed = elapsedTime / (minutesPerDay * 60f);
+        float ElapsedMinutes = 8 * 60 * percentageElapsed;
+        float ElapsedHours = Mathf.Floor(ElapsedMinutes / 60f);
+        float extraMinutes = Mathf.Floor(ElapsedMinutes - ElapsedHours*60) ;
+        return  ElapsedHours + 9 + ":" + extraMinutes;
     }
 }
