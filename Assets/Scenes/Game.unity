@@ -383,6 +383,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &147586988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7520332839305407533, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+  m_PrefabInstance: {fileID: 2146112575768205755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &191271269 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8508350726454880858, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
@@ -1046,6 +1057,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392995731}
   m_CullTransparentMesh: 1
+--- !u!114 &426105393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5911466117922173444, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+  m_PrefabInstance: {fileID: 2146112575768205755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &472802955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5911466119144306441, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
+  m_PrefabInstance: {fileID: 2146112575768205755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477545667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4522,7 +4555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6163477389163440142, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5903,6 +5936,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: debt
+      value: 
+      objectReference: {fileID: 2146112575768205756}
+    - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 84578279}
@@ -5911,9 +5948,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 198815614}
     - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: toggles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: lifeCosts.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: toggles.Array.data[0]
+      value: 
+      objectReference: {fileID: 147586988}
+    - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: toggles.Array.data[1]
+      value: 
+      objectReference: {fileID: 426105393}
+    - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: toggles.Array.data[2]
+      value: 
+      objectReference: {fileID: 472802955}
     - target: {fileID: 7489661708814330768, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: lifeCosts.Array.data[0]
       value: 
@@ -5936,7 +5989,7 @@ PrefabInstance:
       objectReference: {fileID: 788848672}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: minutesPerDay
-      value: 4
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.size
