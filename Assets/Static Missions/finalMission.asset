@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
-  m_Name: firstMission
+  m_Name: finalMission
   m_EditorClassIdentifier: 
-  text: "<color=#30BABF>Jefe</color>\n\nFeliz primer dia en la empresa!\n\n Tu jornada
-    es de 9 a 17hs. Te pagaremos por completar Tareas que recibas de tus compa\xF1eros
-    de trabajo. Para comenzar, <color=#30BABF>Escribe</color> este comando en la
-    <color=#30BABF>consola</color> de abajo:\nopen <color=#E200FF>Matias </color>"
+  text: 
   type: 0

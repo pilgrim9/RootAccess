@@ -9,7 +9,7 @@ public class InputController : MonoBehaviour
     public TMP_Text text;
     public TMP_InputField InputField;
 
-    public string consolePlaceholder = "Bienvenido!";
+    public string consolePlaceholder = "Buen dia!";
     private void Start()
     {
         text.text = consolePlaceholder;
