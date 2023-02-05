@@ -10,8 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
-  m_Name: Move
+  m_Name: firstMission
   m_EditorClassIdentifier: 
-  text: "{player}, perd\xED el archivo {file}, estaba en la carpeta {folder}, encontralo
-    y ponelo ah\xED."
+  text: '>The Boss
+
+    Ey, pongamoste a prueba, busca el archivo TioBorracho.png,
+    cortalo y pegalo en la carpeta Navidad, para eso sigue estos pasos
+
+    OPEN
+    Matias
+
+    OPEN Imagenes
+
+    OPEN Trabajo
+
+    CUT TioBorracho.png
+
+    BACK
+
+    OPEN
+    Navidad
+
+    PASTE'
   type: 0

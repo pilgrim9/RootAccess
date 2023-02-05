@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4aa2b73184d78e47a32e2e399e0488b, type: 3}
-  m_Name: MissionSO
+  m_Script: {fileID: 11500000, guid: bfa2115d8f783944e8b9c7675790525f, type: 3}
+  m_Name: Ariel
   m_EditorClassIdentifier: 
-  text: 
-  type: 0
+  Name: 
+  folders: []
+  files: []

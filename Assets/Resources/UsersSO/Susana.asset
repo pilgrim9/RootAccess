@@ -10,30 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfa2115d8f783944e8b9c7675790525f, type: 3}
-  m_Name: Marcos
+  m_Name: Susana
   m_EditorClassIdentifier: 
-  Name: Marcos
+  Name: Susana
   folders:
+  - name: Trabajo
+    subfolders: []
+    files:
+    - name: reglas.pdf
+    - name: recibo.pdf
   - name: Imagenes
     subfolders: []
     files:
-    - name: Charizard.PNG
-    - name: Navidad.PNG
-    - name: Navidad2.PNG
+    - name: Digimon.png
+    - name: Pokemon.png
   - name: Descargas
     subfolders: []
     files:
-    - name: MenuItaliano.PDF
-    - name: Medialunas.PDF
-  - name: Importantes
-    subfolders:
-    - name: Emily
-      subfolders: []
-      files:
-      - name: "Cumpla\xF1os.PDF"
-    - name: Trabajo
-      subfolders: []
-      files:
-      - name: Tareas.PDF
-    files: []
+    - name: MenuItaliano
   files: []
