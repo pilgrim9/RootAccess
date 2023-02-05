@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            MailMission.instance.CreateRandomMission();
+            MailMission.instance.CreateMission();
         }
 
     }

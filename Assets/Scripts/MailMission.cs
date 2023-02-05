@@ -28,7 +28,7 @@ public class MailMission : MonoBehaviour
         instance = this;
         playerName = PlayerPrefs.GetString("Name");
     }
-
+    
     void Start()
     {
         missions = Resources.LoadAll<MissionSO>("MisssionSO");
@@ -47,18 +47,13 @@ public class MailMission : MonoBehaviour
         {
             onMissionCompleteAction?.Invoke();
             onMissionComplete.Invoke();
-            CreateMission(SelectMission());
+            CreateMission();
         }
     }
     private UserSO[] users { get
         {
             return FileSystem.instance.users;
         }
-    }
-
-    public void CreateRandomMission()
-    {
-        CreateMission(SelectMission());
     }
 
     public void StartFirstMission(MissionSO firstMission)
@@ -70,29 +65,31 @@ public class MailMission : MonoBehaviour
         
     }
 
-    public void CreateMission(MissionSO missionTemplate)
+    public void CreateMission()
     {
+        MissionSO missionTemplate = SelectMission();
+
         string missionText = missionTemplate.text;
 
         int randomUser = Random.Range(0, users.Length);
         missionText = missionText.Replace("{user}", users[randomUser].Name);
         missionText = missionText.Replace("{player}", playerName);
-        string file = CreateFile();
 
-        OSFolder userFolder = FileSystem.instance.root.GetFolder(users[randomUser].name);
+        OSFolder userFolder = FileSystem.instance.root.GetFolder(users[randomUser].Name);
         if (missionTemplate.type == MissionType.Move)
         {
+            string file = CreateFile();
             int randomFolder = Random.Range(0, users[randomUser].folders.Count);
-            missionText = missionText.Replace("{folder}", userFolder.subfolders[randomFolder].name);
+            missionText = missionText.Replace("{folder}", userFolder.subfolders[randomFolder].getName());
             missionText = missionText.Replace("{file}", file);
-            AddFile(userFolder, file, userFolder.subfolders[randomFolder].name);
-            currentMission = new ActiveMission(file, users[randomUser].Name, userFolder.subfolders[randomFolder].name, missionTemplate.type);
+            AddFile(userFolder, file, userFolder.subfolders[randomFolder].getName());
+            currentMission = new ActiveMission(file, users[randomUser].Name, userFolder.subfolders[randomFolder].getName(), missionTemplate.type);
         }
         else
         {
             int randomApp = Random.Range(0, apps.Count);
             missionText = missionText.Replace("{app}", apps[randomApp]);
-            currentMission = new ActiveMission(file, users[randomUser].Name, "", missionTemplate.type);
+            currentMission = new ActiveMission(apps[randomApp], users[randomUser].Name, "", missionTemplate.type);
 
         }
         
@@ -129,7 +126,7 @@ public class MailMission : MonoBehaviour
         {
             int randomFolder = Random.Range(0, folderObject.subfolders.Count);
 
-            if (folderObject.subfolders[randomFolder].subfolders.Count == 0 && folderObject.subfolders[randomFolder].name != folder) folderObject.subfolders[randomFolder].files.Add(oSFile);
+            if (folderObject.subfolders[randomFolder].subfolders.Count == 0 && folderObject.subfolders[randomFolder].getName() != folder) folderObject.subfolders[randomFolder].files.Add(oSFile);
             else if (folderObject.subfolders[randomFolder].subfolders.Count == 0)
             {
                 AddFile(folderObject, file, folder);

@@ -2217,7 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b44ec28351d48fb448e56a3b2f4fe384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutesPerDay: 0.1
+  minutesPerDay: 5
   elapsedTime: 0
   gameStarted: 0
   timerText: {fileID: 788848672}
@@ -2288,7 +2288,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
-  firstMission: 1
+  firstMission: 0
 --- !u!4 &1395162781
 Transform:
   m_ObjectHideFlags: 0
@@ -2316,6 +2316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a240f06ae0ccb34eaea0b37b4864b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyPerMission: 30
   money: 100
   total: 0
   totalText: {fileID: 198815614}
@@ -4194,7 +4195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2146112574422165381, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51bb140ab234fdf49bcf81a11d4b73a8, type: 3}
@@ -4347,6 +4348,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 477545668}
     m_Modifications:
+    - target: {fileID: 193641237, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 929367116, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017900951, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2054046100, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.5

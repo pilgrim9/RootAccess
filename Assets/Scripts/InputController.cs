@@ -21,7 +21,6 @@ public class InputController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("enter");
             HandleInput();
         }
     }

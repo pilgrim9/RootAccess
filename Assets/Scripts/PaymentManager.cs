@@ -1,15 +1,18 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PaymentManager : MonoBehaviour
 {
     public static PaymentManager instance;
-    public int money, total;
+    public int moneyPerMission, money, total;
     [SerializeField] TextMeshProUGUI totalText;
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] LifeCost[] lifeCosts;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip audioClip;
+
+    
 
     private void Awake()
     {
@@ -17,10 +20,19 @@ public class PaymentManager : MonoBehaviour
     }
     private void Start()
     {
+        moneyPerMission = 30;
         total = money;
         lifeCosts = FindObjectsOfType<LifeCost>();
+        MailMission.instance.onMissionCompleteAction += AddMoney;
+
     }
-    public void UpdateMoney() {
+    public void AddMoney()
+    {
+        money += moneyPerMission;
+        UpdateMoney();
+    }
+    public void UpdateMoney() 
+    {
         moneyText.text = "Momney: " + money;
     }
 
