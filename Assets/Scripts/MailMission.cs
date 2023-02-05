@@ -29,11 +29,11 @@ public class MailMission : MonoBehaviour
     {
         instance = this;
         playerName = PlayerPrefs.GetString("Name");
+        missions = Resources.LoadAll<MissionSO>("MisssionSO");
     }
     
     void Start()
     {
-        missions = Resources.LoadAll<MissionSO>("MisssionSO");
         CommandLine.instance.onCommand += OnCommand;
     }
 
