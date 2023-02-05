@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class MailMission : MonoBehaviour
 
 {
-    public MissionSO install, move;
+    public MissionSO[] missions;
     public static MailMission instance;
 
     public List<string> files, apps, firstFileName,  formatName, filesCreates;
@@ -30,9 +30,8 @@ public class MailMission : MonoBehaviour
 
     MissionSO SelectMission()
     {
-        int randomType = Random.Range(0, 3);
-        if (randomType == 0) return move;
-        else return install;
+        int randomType = Random.Range(0, missions.Length);
+        return missions[randomType];
     }
 
     public void OnCommand(string command, string place, string file)
