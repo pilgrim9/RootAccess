@@ -455,7 +455,7 @@ MonoBehaviour:
   costText: {fileID: 1601017429571883250}
   isPaid: 0
   chances: 3
-  cost: 50
+  cost: 40
   chancesVisual:
   - {fileID: 4415293988504248132}
   - {fileID: 7901203714235652959}
