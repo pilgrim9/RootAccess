@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         audioSource.Stop();
         gameStarted = false;
         onDayEnd.Invoke();
-        // fade.Play();
+        fade.Play();
     }
 
     public string getTime()

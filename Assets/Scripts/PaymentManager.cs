@@ -40,7 +40,7 @@ public class PaymentManager : MonoBehaviour
     public void UpdateTotal()
     {
         total = money;
-        totalText.text = "$$$$$$$$$$$$$$$$$$" + total;
+        totalText.text = "$" + total;
     }
     public void UpdateTotal(LifeCost lifeCost)
     {
