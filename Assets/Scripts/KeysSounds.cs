@@ -15,7 +15,7 @@ public class KeysSounds : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
             int randomMouse = Random.Range(0, mouse.Length);
-            audioSource.PlayOneShot(keyBoard[randomMouse]);
+            audioSource.PlayOneShot(mouse[randomMouse]);
         }
         else if (Input.anyKeyDown)
         {
