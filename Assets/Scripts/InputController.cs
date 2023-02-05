@@ -13,7 +13,7 @@ public class InputController : MonoBehaviour
     private void Start()
     {
         text.text = consolePlaceholder;
-        text.text += CommandLine.instance.InputCommand("List");
+        //text.text += CommandLine.instance.InputCommand("List");
     }
 
     // Update is called once per frame

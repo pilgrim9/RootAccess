@@ -24,7 +24,7 @@ public class MailMission : MonoBehaviour
 
     void Start()
     {
-        users = FileSystem.instance.users;
+        
         CommandLine.instance.onCommand += OnCommand;
     }
 
@@ -46,6 +46,7 @@ public class MailMission : MonoBehaviour
 
     public void CreateMission()
     {
+        users = FileSystem.instance.users;
         MissionSO missionTemplate = SelectMission();
 
         string missionText = missionTemplate.text;
