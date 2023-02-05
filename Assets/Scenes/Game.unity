@@ -3358,6 +3358,9 @@ MonoBehaviour:
   day: {fileID: 8300000, guid: 88b5fbda0199797428bbbc0b59c65e16, type: 3}
   recibe: {fileID: 8300000, guid: 985b5b07fc584014dba16e1d1f8ff013, type: 3}
   audioSource: {fileID: 1761887710}
+  OnAnimFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1825257797
 GameObject:
   m_ObjectHideFlags: 0
@@ -5208,6 +5211,10 @@ PrefabInstance:
     - target: {fileID: 6222746900232762889, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613671799004439438, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7096047647136534041, guid: 8ccc26d1755df5645b3073bd7a053a6c, type: 3}
       propertyPath: m_Name

@@ -64,18 +64,14 @@ public class CommandLine : MonoBehaviour
                  FileSystem.instance.currentFolder.FolderPath.Replace("\\","</color>\\<color=" + Colors.FileColor + ">")
                  + "</color>> " 
                  + input + "\n" + output;
-        foreach (var command in commands.Keys)
-        {
-            newOutput = newOutput.Replace(command,"<color=" + Colors.CommandColor + ">" + command + "</color>", StringComparison.OrdinalIgnoreCase);
-        }
-        return newOutput;
+        return colorCommands(input);
     }
 
-    public string highlightCommands(string input)
+    public string colorCommands(string input)
     {
-        
-        return input;
+        return Colors.ReplaceCollection(input, commands.Keys, Colors.CommandColor);
     }
+
     private void clearOutput()
     {
         output = "";

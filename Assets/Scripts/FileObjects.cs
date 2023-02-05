@@ -139,6 +139,5 @@ public class OSFile : Object
         return name.ToLower();
     }
     public string name;
-    [NonSerialized] public string targetFolderPath;
 }
 

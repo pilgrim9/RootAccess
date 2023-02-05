@@ -5,6 +5,7 @@ using UnityEngine.Windows;
 using System;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 public class MailMission : MonoBehaviour
 
@@ -61,10 +62,13 @@ public class MailMission : MonoBehaviour
         string missionText = firstMission.text;
         currentMission = new ActiveMission("TioBorracho.png", "matias", "Navidad", MissionType.Move);
         onMissionCreated.Invoke(missionText);
-        emailText.text = missionText;
-        
+        updateEmailText(missionText);
     }
 
+    public void updateEmailText(string missionText)
+    {
+        emailText.text = CommandLine.instance.colorCommands(missionText);
+    }
     public void CreateMission()
     {
         MissionSO missionTemplate = SelectMission();
@@ -72,7 +76,7 @@ public class MailMission : MonoBehaviour
         string missionText = missionTemplate.text;
 
         int randomUser = Random.Range(0, users.Length);
-        missionText = missionText.Replace("{user}", users[randomUser].Name);
+        missionText = missionText.Replace("{user}", Colors.Wrap(users[randomUser].Name, Colors.FolderColor));
         missionText = missionText.Replace("{player}", playerName);
 
         OSFolder userFolder = FileSystem.instance.root.GetFolder(users[randomUser].Name);
@@ -80,21 +84,21 @@ public class MailMission : MonoBehaviour
         {
             string file = CreateFile();
             int randomFolder = Random.Range(0, users[randomUser].folders.Count);
-            missionText = missionText.Replace("{folder}", userFolder.subfolders[randomFolder].getName());
-            missionText = missionText.Replace("{file}", file);
+            missionText = missionText.Replace("{folder}", Colors.Wrap(userFolder.subfolders[randomFolder].getName(), Colors.FolderColor));
+            missionText = missionText.Replace("{file}", Colors.Wrap(file, Colors.FileColor));
             AddFile(userFolder, file, userFolder.subfolders[randomFolder].getName());
             currentMission = new ActiveMission(file, users[randomUser].Name, userFolder.subfolders[randomFolder].getName(), missionTemplate.type);
         }
         else
         {
             int randomApp = Random.Range(0, apps.Count);
-            missionText = missionText.Replace("{app}", apps[randomApp]);
+            missionText = missionText.Replace("{app}", Colors.Wrap(apps[randomApp], Colors.FileColor));
             currentMission = new ActiveMission(apps[randomApp], users[randomUser].Name, "", missionTemplate.type);
 
         }
         
         onMissionCreated.Invoke(missionText);
-        emailText.text = missionText;
+        updateEmailText(missionText);
 
     }
 
