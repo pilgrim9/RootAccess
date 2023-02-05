@@ -116,11 +116,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7489661708814330768}
+        m_TargetAssemblyTypeName: PaymentManager, Assembly-CSharp
+        m_MethodName: UpdateTotal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
   firstMission: 1
   audioSource: {fileID: 6316463623447851064}
   lowTime: {fileID: 8300000, guid: 36fc8b6ecf2813f4d8f15dec3bb0c97a, type: 3}
-  Alarm: {fileID: 8300000, guid: 70cf4200e60c6934fb089ddc76c82272, type: 3}
+  alarm: {fileID: 0}
+  fade: {fileID: 0}
 --- !u!114 &7489661708814330768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +152,9 @@ MonoBehaviour:
   totalText: {fileID: 0}
   moneyText: {fileID: 0}
   lifeCosts: []
-  audioClip: {fileID: 8300000, guid: d696498393009bf469c29386128fe06c, type: 3}
+  audioClipWin: {fileID: 8300000, guid: d696498393009bf469c29386128fe06c, type: 3}
+  audioClipLose: {fileID: 8300000, guid: e704d93ade7bf044a95bd801d909d93f, type: 3}
+  source: {fileID: 6316463623447851064}
 --- !u!82 &6316463623447851064
 AudioSource:
   m_ObjectHideFlags: 0

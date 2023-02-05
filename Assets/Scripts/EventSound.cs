@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class EventSound : MonoBehaviour
 {
-    [SerializeField] AudioSource source;
+    [SerializeField] AudioSource source,sourceMission;
     [SerializeField] AudioClip[] clips;
+    [SerializeField] AudioClip missionSound;
     [SerializeField] float minTime, maxTime;
 
     void Start()
@@ -27,4 +28,10 @@ public class EventSound : MonoBehaviour
         float randomTime = Random.Range(minTime, maxTime);
         StartCoroutine(RandomSound(randomTime));
     }
+
+    void MissionCompleteSound() 
+    {
+        sourceMission.PlayOneShot(missionSound);
+    }
+
 }
