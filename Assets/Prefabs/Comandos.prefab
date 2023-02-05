@@ -596,8 +596,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.5, y: -182.4}
-  m_SizeDelta: {x: 197.49995, y: 27.269592}
+  m_AnchoredPosition: {x: -245, y: -168}
+  m_SizeDelta: {x: 291.076, y: 126.4322}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6902943861936669964
 CanvasRenderer:
@@ -636,8 +636,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2901555
-  m_fontColor: {r: 0.20063394, g: 0.2735849, b: 0.1713777, a: 0}
+    rgba: 2156886
+  m_fontColor: {r: 0.3372169, g: 0.9150943, b: 0.12431464, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -654,8 +654,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -705,11 +705,11 @@ Animation:
   m_GameObject: {fileID: 4945343123108311569}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 32035a43e3dd62d41979eb9e6ae6e765, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 32035a43e3dd62d41979eb9e6ae6e765, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &5380323540639977141
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionsCompleated: 0
   countText: {fileID: 33051439042519559}
-  anim: {fileID: 0}
+  anim: {fileID: 8788471793360394444}
 --- !u!1001 &340278988572277388
 PrefabInstance:
   m_ObjectHideFlags: 0
