@@ -448,6 +448,7 @@ MonoBehaviour:
   - {fileID: 4415293988504248132}
   - {fileID: 7901203714235652959}
   - {fileID: 3480425079052390018}
+  loseMessage: Fuiste desalojado
 --- !u!1 &4415293988504248132
 GameObject:
   m_ObjectHideFlags: 0

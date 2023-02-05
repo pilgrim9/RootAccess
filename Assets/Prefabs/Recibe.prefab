@@ -836,6 +836,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 447307101872840582, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
+      propertyPath: loseMessage
+      value: Tienes mucha hambre para trabajar.
+      objectReference: {fileID: 0}
     - target: {fileID: 1169140712140023986, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
       propertyPath: m_text
       value: Comida
@@ -958,6 +962,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 447307101872840582, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
+      propertyPath: loseMessage
+      value: "Detenido por evaci\xF3n fiscal."
+      objectReference: {fileID: 0}
     - target: {fileID: 1169140712140023986, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
       propertyPath: m_text
       value: Impuestos
@@ -1079,6 +1087,10 @@ PrefabInstance:
     - target: {fileID: 75912430131666712, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447307101872840582, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
+      propertyPath: loseMessage
+      value: Fuiste desalojado.
       objectReference: {fileID: 0}
     - target: {fileID: 1169140712140023986, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
       propertyPath: m_text
