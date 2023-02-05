@@ -49,6 +49,11 @@ public class MailMission : MonoBehaviour
         }
     }
 
+    public void CreateRandomMission()
+    {
+        CreateMission(SelectMission());
+    }
+
     public void CreateMission(MissionSO missionTemplate)
     {
 
@@ -64,7 +69,6 @@ public class MailMission : MonoBehaviour
         {
             int randomFolder = Random.Range(0, users[randomUser].folders.Count);
             missionText = missionText.Replace("{folder}", userFolder.subfolders[randomFolder].name);
-
             missionText = missionText.Replace("{file}", file);
             AddFile(userFolder, file, userFolder.subfolders[randomFolder].name);
             currentMission = new ActiveMission(file, users[randomUser].Name, userFolder.subfolders[randomFolder].name, missionTemplate.type);

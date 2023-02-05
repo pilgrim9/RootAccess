@@ -1305,6 +1305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: missions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7069602863326324254, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2104,6 +2108,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  FirstMission: {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
 --- !u!4 &1395162781
 Transform:
   m_ObjectHideFlags: 0

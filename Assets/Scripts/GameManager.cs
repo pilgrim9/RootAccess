@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
     public UnityEvent onDayStart;
     public UnityEvent onDayEnd;
+    public MissionSO FirstMission;
+    public bool firstMission = true;
 
     private void Awake()
     {
@@ -26,7 +28,17 @@ public class GameManager : MonoBehaviour
         elapsedTime = 0f;
         gameStarted = true;
         onDayStart.Invoke();
-        MailMission.instance.CreateMission();
+        if (firstMission)
+        {
+            firstMission = false;
+            MailMission.instance.CreateMission(FirstMission);
+
+        }
+        else
+        {
+            MailMission.instance.CreateRandomMission();
+        }
+
     }
     private void Update()
     {
