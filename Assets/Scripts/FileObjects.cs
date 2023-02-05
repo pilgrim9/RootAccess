@@ -41,7 +41,7 @@ public class OSFolder: Object
     {
         foreach (var folder in subfolders)
         {
-            if (folder.getName() == FolderName)
+            if (folder.getName() == FolderName.ToLower())
             {
                 return true;
             }
@@ -53,7 +53,7 @@ public class OSFolder: Object
     {
         foreach (var file in files)
         {
-            if (file.getName() == fileName)
+            if (file.getName() == fileName.ToLower())
             {
                 return true;
             }
@@ -69,7 +69,7 @@ public class OSFolder: Object
     {
         foreach (var folder in subfolders)
         {
-            if (folder.getName() == folderName)
+            if (folder.getName() == folderName.ToLower())
             {
                 return folder;
             }
@@ -82,7 +82,7 @@ public class OSFolder: Object
     {
         foreach (var folder in subfolders)
         {
-            if (folder.getName() == fileName)
+            if (folder.getName() == fileName.ToLower())
             {
                 return folder;
             }
@@ -90,7 +90,7 @@ public class OSFolder: Object
 
         foreach (var file in files)
         {
-            if (file.getName() == fileName)
+            if (file.getName() == fileName.ToLower())
             {
                 return file;
             }
@@ -103,7 +103,7 @@ public class OSFolder: Object
     {
         foreach (var file in  files)
         {
-            if (file.getName() == fileName)
+            if (file.getName() == fileName.ToLower())
             {
                 files.Remove(file);
                 return file;

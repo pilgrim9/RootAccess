@@ -13,7 +13,7 @@ public class MailMission : MonoBehaviour
     public ActiveMission currentMission;
     public UnityEvent onMissionComplete;
     public UnityEvent<string> onMissionCreated;
-    UserSO[] users;
+    
 
     public string playerName;
     private void Awake()
@@ -43,10 +43,14 @@ public class MailMission : MonoBehaviour
             CreateMission();
         }
     }
+    private UserSO[] users { get
+        {
+            return FileSystem.instance.users;
+        }
+    }
 
     public void CreateMission()
     {
-        users = FileSystem.instance.users;
         MissionSO missionTemplate = SelectMission();
 
         string missionText = missionTemplate.text;

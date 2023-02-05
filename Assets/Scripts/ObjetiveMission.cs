@@ -17,16 +17,23 @@ public class ActiveMission
 
     public bool isMissionComplete(string command, string place, string file)
     {
+        Debug.Log(command + " " + place + " " + file + " " + missionType);
+
         if (missionType == MissionType.Install) { 
             if (command == "install" && file == this.file && place.Contains(user))
             {
                 return true;
             }
         }
-        if (missionType == MissionType.Move) { 
-            if (command == "paste" && file == this.file && place.Contains(user) && place.Contains(folder))
+        if (missionType == MissionType.Move) {
+            Debug.Log(FileSystem.instance.currentFolder.ContainsFile(this.file));
+            Debug.Log(FileSystem.instance.currentFolder.name);
+            Debug.Log(this.file);
+
+            if (command == "paste" && place.Contains(user) && place.Contains(folder) && FileSystem.instance.currentFolder.ContainsFile(this.file)) 
             {
-                return true;
+                Debug.Log("ganaste");
+                return true;              
 
             }
         }

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class FileSystem : MonoBehaviour
 {
     public OSFile clipboard = null;
@@ -30,8 +30,8 @@ public class FileSystem : MonoBehaviour
         foreach (var user in users)
         {
             OSFolder userFolder = new OSFolder(user.Name, parentFolder);
-            userFolder.subfolders = user.folders;
-            userFolder.files = user.files;
+            userFolder.subfolders = new List<OSFolder>(user.folders);
+            userFolder.files = new List<OSFile>(user.files);
             parentFolder.subfolders.Add(userFolder);
             ParentThisFolder(userFolder);
         }
