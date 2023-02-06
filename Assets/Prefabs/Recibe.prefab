@@ -77,7 +77,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6409284520000d4db382847576a10b5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcc707e586db06c439e5c1bf76bd543a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 2525405885412956330}
   - component: {fileID: 5640673193491174588}
   - component: {fileID: 831310889607957514}
+  - component: {fileID: 1940401947}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -627,6 +628,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1940401947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171627223894381284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4ec5d9b5294ce4082f6e05fc2d0893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6984229390519481798
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,10 +762,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1728518793932583242}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PaymentManager, Assembly-CSharp
+        m_MethodName: Pay
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1510,6 +1523,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447307101872840582, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
+      propertyPath: cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 447307101872840582, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
       propertyPath: chances
       value: 1
       objectReference: {fileID: 0}
@@ -1575,11 +1592,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
---- !u!1 &1728518793932583242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3758857817777100999, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
-  m_PrefabInstance: {fileID: 2582475643404806541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2202415897556776649 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4415293988504248132, guid: 5b164f7cccf54e04c80a131eeb2dec49, type: 3}
