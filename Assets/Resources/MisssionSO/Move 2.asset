@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Move 2
   m_EditorClassIdentifier: 
   text: "{user}\n\nHola {player}, \xBFMe recuerdas?.\nNo puedo encontrar el archivo
-    {file} entre mis carpetas. Si lo encuentras, me lo <mueves a {folder}?\n\nGracias!"
+    {file} entre mis carpetas. Si lo encuentras, me lo mueves a {folder}?\n\nGracias!"
   type: 0

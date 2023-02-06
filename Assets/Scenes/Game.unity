@@ -420,6 +420,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8069907479341327598, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
   m_PrefabInstance: {fileID: 8069907479731712819}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &214345408 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5467535454187924209, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+  m_PrefabInstance: {fileID: 8069907479731712819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e57b3c746cf9b4b93b452d7672467b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284832704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1732,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
+      propertyPath: portapapeles
+      value: 
+      objectReference: {fileID: 1310173847}
     - target: {fileID: 7069602863326324225, guid: e98ce60b8a1013140b3d0dc7123e0932, type: 3}
       propertyPath: missions.Array.size
       value: 0
@@ -6276,7 +6291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -6303,6 +6318,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1355234878}
@@ -6322,6 +6341,10 @@ PrefabInstance:
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 1577458728}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_Target
+      value: 
+      objectReference: {fileID: 214345408}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
@@ -6343,8 +6366,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
       value: set_mute
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
+      value: Init
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
@@ -6363,6 +6394,10 @@ PrefabInstance:
       value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
+      value: InputController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
@@ -6376,6 +6411,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
       propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7489661708814330770, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
+      propertyPath: onDayStart.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7489661708814330771, guid: 66e22a7ac90a0b94e80c03aae651a327, type: 3}
@@ -6558,6 +6597,22 @@ PrefabInstance:
     - target: {fileID: 8069907479341327571, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
       propertyPath: m_Color.r
       value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069907479754364260, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.000030518
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069907479754364260, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -22.5166
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069907479754364260, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069907479754364260, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11.258301
       objectReference: {fileID: 0}
     - target: {fileID: 8069907479754364267, guid: 191919c25fe68424ca20d00f3417bf66, type: 3}
       propertyPath: m_text

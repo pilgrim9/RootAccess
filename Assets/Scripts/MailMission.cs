@@ -5,6 +5,7 @@ using UnityEngine.Windows;
 using System;
 using Random = UnityEngine.Random;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.PlayerLoop;
 
 public class MailMission : MonoBehaviour
@@ -22,6 +23,7 @@ public class MailMission : MonoBehaviour
 
     public TextMeshProUGUI emailText;
     public MissionSO[] tutorialMissions;
+    public TMP_Text portapapeles; 
 
 
     public string playerName;
@@ -35,6 +37,18 @@ public class MailMission : MonoBehaviour
     void Start()
     {
         CommandLine.instance.onCommand += OnCommand;
+    }
+
+    private void Update()
+    {
+        if (FileSystem.instance.clipboard == null)
+        {
+            portapapeles.text = "";
+        }
+        else
+        {
+            portapapeles.text = FileSystem.instance.clipboard.getName();
+        }
     }
 
     MissionSO SelectMission()

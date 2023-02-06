@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
         gameStarted = true;
         onDayStart.Invoke();
         MailMission.instance.CreateMission();
-
     }
     private void Update()
     {
