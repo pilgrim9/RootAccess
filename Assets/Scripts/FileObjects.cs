@@ -29,7 +29,7 @@ public class OSFolder: Object
     {
         return name.ToLower();
     }
-    private string name;
+    [SerializeField] private string name;
     
     public List<OSFolder> subfolders = new List<OSFolder>();
     public List<OSFile> files = new List<OSFile>();
