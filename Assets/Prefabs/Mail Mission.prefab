@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4474562f5f53b5845b61fae8cac157d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missions:
-  - {fileID: 11400000, guid: b536da7727072a84ca26a15b584a48cd, type: 2}
-  - {fileID: 11400000, guid: 9d768ecc397fce44b8d55c0332630b35, type: 2}
-  - {fileID: 11400000, guid: ff6bb2e4554bcc84b94c5c323684effe, type: 2}
+  missions: []
   files: []
   apps:
   - 3dMax
@@ -73,7 +70,7 @@ MonoBehaviour:
   onMissionComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4995681379688119405, guid: 5d9a5cf4116ca5d4d96f57fdf820b593, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EventSound, Assembly-CSharp
         m_MethodName: MissionCompleteSound
         m_Mode: 1
@@ -87,7 +84,19 @@ MonoBehaviour:
         m_CallState: 2
   onMissionCreated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   emailText: {fileID: 0}
   tutorialMissions:
   - {fileID: 11400000, guid: 69a149e1036c12641897086155a3cbb2, type: 2}
@@ -97,4 +106,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b98b8fdcf22cc6f46bdbb8d57b340704, type: 2}
   - {fileID: 11400000, guid: 3da28cb9a6fc1344c81378072da8ed3d, type: 2}
   - {fileID: 11400000, guid: de8dd8c9115a04c4ba567cc071557039, type: 2}
+  portapapeles: {fileID: 0}
   playerName: 

@@ -22,14 +22,14 @@ public class OSFolder: Object
 
     public void BuildFolderPath()
     {
-        FolderPath = "\\" +  (ParentFolder != null? ParentFolder.FolderPath + "\\" + name : name);
+        FolderPath = (ParentFolder != null? ParentFolder.FolderPath + "/" + name : name);
     }
 
     public string getName()
     {
         return name.ToLower();
     }
-    public string name;
+    [SerializeField] private string name;
     
     public List<OSFolder> subfolders = new List<OSFolder>();
     public List<OSFile> files = new List<OSFile>();
